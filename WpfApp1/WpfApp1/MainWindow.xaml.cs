@@ -30,8 +30,8 @@ namespace WpfApp1
             adverts.Add(new Advertisment("Tovar", "50$", "Dich", "Govnotovary", "Rivne", DateTime.Now));
             View.ItemsSource =adverts;
 
-            Autorization aur = new Autorization();
-            aur.Show();
+            //Autorization aur = new Autorization();
+            //aur.Show();
         }
 
     }
