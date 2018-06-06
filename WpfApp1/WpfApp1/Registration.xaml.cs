@@ -13,19 +13,20 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.IO;
 using System.Xml.Serialization;
-using System.Collections.ObjectModel;
 
+using System.Collections.ObjectModel;
 namespace WpfApp1
 {
     /// <summary>
-    /// Interaction logic for Autorization.xaml
+    /// Interaction logic for Registration.xaml
     /// </summary>
-    public partial class Autorization : Window
+    public partial class Registration : Window
     {
         public List<User> list = new List<User>();
-        public Autorization()
+        public Registration()
         {
             InitializeComponent();
+            this.City.Items.Add("RIVNE");
             if (File.Exists("user.xml") == true)
             {
 
@@ -39,21 +40,20 @@ namespace WpfApp1
 
         private void reg_btn_Click(object sender, RoutedEventArgs e)
         {
-            Registration new_acc = new Registration();
-            new_acc.Show();
+            User user = new User(this.Login.Text, this.Pass.Password, this.City.SelectedItem.ToString(), this.Phone.Text);
+            list.Add(user);
+             
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(ObservableCollection<User>));
+            using (FileStream fs = new FileStream("user.xml", FileMode.Create))
+            {
+                xmlSerializer.Serialize(fs, list);
+            }
             this.Close();
         }
 
-        private void login_btn_Click(object sender, RoutedEventArgs e)
+        private void close_btn_Click(object sender, RoutedEventArgs e)
         {
-            foreach (var el in list)
-                if (el.login == this.Login.Text && el.password == this.Pass.Password)
-                    this.Close();
-               else
-                {
-                    MessageBox.Show("Login or password is valid");
-                    return;
-                }
+            this.Close();
         }
     }
 }
