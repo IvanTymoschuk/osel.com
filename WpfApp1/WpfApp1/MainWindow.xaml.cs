@@ -24,5 +24,36 @@ namespace WpfApp1
         {
             InitializeComponent();
         }
+
+
+
+        private void Login_Click(object sender, RoutedEventArgs e)
+        {
+            string login = "test";
+            string password = "test";
+            bool isBanned = false;
+            if (String.IsNullOrEmpty(Login_box.Text) || String.IsNullOrEmpty(Password_box.Password))
+                MessageBox.Show("Please input all field");
+            else
+            if (login == Login_box.Text && Password_box.Password == password)
+                if (isBanned == true)
+                {
+                    MessageBox.Show("You has banned");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Connected");
+                    this.Close();
+                }
+            else
+                MessageBox.Show("Login or password is invalid");
+          
+        }
+
+        private void Registration_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
