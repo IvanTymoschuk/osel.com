@@ -43,17 +43,22 @@ namespace WpfApp1
             User user = new User(this.Login.Text, this.Pass.Password, this.City.SelectedItem.ToString(), this.Phone.Text);
             list.Add(user);
              
-            XmlSerializer xmlSerializer = new XmlSerializer(typeof(ObservableCollection<User>));
-            using (FileStream fs = new FileStream("user.xml", FileMode.Create))
-            {
-                xmlSerializer.Serialize(fs, list);
-            }
+           
             this.Close();
         }
 
         private void close_btn_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(ObservableCollection<User>));
+            using (FileStream fs = new FileStream("user.xml", FileMode.Create))
+            {
+                xmlSerializer.Serialize(fs, list);
+            }
         }
     }
 }

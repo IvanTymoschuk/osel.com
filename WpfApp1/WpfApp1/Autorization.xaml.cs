@@ -35,12 +35,14 @@ namespace WpfApp1
                     list = (List<User>)xmlSerializer.Deserialize(fs);
                 }
             }
+            else
+                list.Add(new User());
         }
 
         private void reg_btn_Click(object sender, RoutedEventArgs e)
         {
             Registration new_acc = new Registration();
-            new_acc.Show();
+            new_acc.Show();;
             this.Close();
         }
 
@@ -48,8 +50,8 @@ namespace WpfApp1
         {
             foreach (var el in list)
                 if (el.login == this.Login.Text && el.password == this.Pass.Password)
-                    this.Close();
-               else
+                    MessageBox.Show("Connect");
+                else
                 {
                     MessageBox.Show("Login or password is valid");
                     return;
