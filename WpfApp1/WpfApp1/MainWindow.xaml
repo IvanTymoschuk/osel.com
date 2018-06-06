@@ -7,6 +7,22 @@
         mc:Ignorable="d"
         Title="Osel.com" Height="450" Width="800">
     <Grid>
-        
+        <StackPanel>
+        <TextBlock Name="MainName" Text="Osel.com" HorizontalAlignment="Center"/>
+            <StackPanel Orientation="Horizontal">
+                <ComboBox Name="ModeSort" Text="Sorting"></ComboBox>
+                <Button Content="OK"></Button>
+            </StackPanel>
+            <ListView Style="{DynamicResource PanelStyle}"  
+                   ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                   Name="View" HorizontalContentAlignment="Center" >
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel HorizontalAlignment="Center"></StackPanel>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+
+            </ListView>
+        </StackPanel>
     </Grid>
 </Window>

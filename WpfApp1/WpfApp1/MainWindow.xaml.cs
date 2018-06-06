@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +21,16 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
+        ObservableCollection<Advertisment> adverts = new ObservableCollection<Advertisment>();
+
         public MainWindow()
         {
             InitializeComponent();
+            adverts.Add(new Advertisment("Tovar", "50$", "Dich", "Govnotovary","Rivne", DateTime.Now));
+            adverts.Add(new Advertisment("Tovar", "50$", "Dich", "Govnotovary", "Rivne", DateTime.Now));
+            View.ItemsSource =adverts;
         }
+
     }
+
 }

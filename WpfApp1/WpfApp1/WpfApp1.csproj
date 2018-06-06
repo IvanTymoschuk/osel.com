@@ -69,6 +69,7 @@
     <Compile Include="Advert.xaml.cs">
       <DependentUpon>Advert.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Advertisment.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>

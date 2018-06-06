@@ -4,6 +4,29 @@
              xmlns:local="clr-namespace:WpfApp1"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+
+        <DataTemplate x:Key="BookTemplate" >
+            <Border Background="Gray">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock  HorizontalAlignment="Center"  FontSize="30" Text="{Binding Path=Name}"/>
+                    <TextBlock Grid.Column="1" Grid.Row="1" Margin="5" Foreground="Aqua" HorizontalAlignment="Left"  FontSize="20" Text="{Binding Path=City}"/>
+
+                </Grid>
+            </Border>
+
+
+        </DataTemplate>
+        <Style  x:Key="PanelStyle" TargetType="ListView">
+            <Setter Property="ItemTemplate" Value="{StaticResource BookTemplate}"/>
+        </Style>
     </Application.Resources>
 </Application>
