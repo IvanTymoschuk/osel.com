@@ -4,9 +4,31 @@
              xmlns:local="clr-namespace:WpfApp1"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        <LinearGradientBrush x:Key="BackItem" StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#FFCEF9F3" Offset="0.1"></GradientStop>
+            <GradientStop Color="#FFECF9CA" Offset="0.3"></GradientStop>
+            <GradientStop Color="#FFF5BCBC" Offset="0.6"></GradientStop>
+            <GradientStop Color="#FFF1DFFB" Offset="0.9"></GradientStop>
+        </LinearGradientBrush>
 
-        <DataTemplate x:Key="BookTemplate" >
-            <Border Background="Gray">
+        <LinearGradientBrush x:Key="MainBack" StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#FFB6BDFF" Offset="0.1"></GradientStop>
+            <GradientStop Color="#FFFFCEC6" Offset="0.9"></GradientStop>
+        </LinearGradientBrush>
+
+        <Style TargetType="TextBlock" x:Key="MainName">
+            <Setter Property="FontFamily" Value="Segoe Print"></Setter>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+            <Setter Property="FontSize" Value="60"></Setter>
+        </Style>
+        
+        
+        <DataTemplate x:Key="BookTemplate"  >
+
+            <Border Margin="2" BorderThickness="0" Background="{StaticResource BackItem}" Width="500">
+                <Border.Effect>
+                    <DropShadowEffect />
+                </Border.Effect>
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition></RowDefinition>
@@ -17,12 +39,15 @@
                         <ColumnDefinition Width="2*"></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <TextBlock  HorizontalAlignment="Center"  FontSize="30" Text="{Binding Path=Name}"/>
-                    <TextBlock Grid.Column="1" Grid.Row="1" Margin="5" Foreground="Aqua" HorizontalAlignment="Left"  FontSize="20" Text="{Binding Path=City}"/>
-
+                    <TextBlock  HorizontalAlignment="Left" FontSize="30" Text="{Binding Path=Name}"/>
+                    <TextBlock Grid.Column="1" Grid.Row="0" Margin="3" HorizontalAlignment="Right"  FontSize="35" Text="{Binding Path=Price}"/>
+                    <TextBlock Grid.Column="0" Grid.Row="1" Margin="3" HorizontalAlignment="Left"  FontSize="20" Text="{Binding Path=Descript}"/>
+                    <TextBlock Grid.Column="1" Grid.Row="1" Margin="3" HorizontalAlignment="Right"  FontSize="20" Text="{Binding Path=City}"/>
+                    <TextBlock Grid.Column="0" Grid.Row="2" Margin="3" HorizontalAlignment="Left"  FontSize="14" Text="{Binding Path=Date}"/>
+                    <TextBlock Grid.Column="1" Grid.Row="2" Margin="3" HorizontalAlignment="Right"  FontSize="15" Text="{Binding Path=Type}"/>
                 </Grid>
             </Border>
-
+            
 
         </DataTemplate>
         <Style  x:Key="PanelStyle" TargetType="ListView">
