@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace WpfApp1
 {
+    [Serializable]
     public class Advertisment
     {
        public string Name { get; set; }
@@ -15,6 +16,10 @@ namespace WpfApp1
         public string City { get; set; }
         public DateTime Date { get; set; }
 
+        public Advertisment()
+        {
+
+        }
 
         public Advertisment(string Name,
                             int Price,
