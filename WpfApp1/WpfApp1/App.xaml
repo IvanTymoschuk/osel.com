@@ -311,7 +311,7 @@
                             <VisualStateManager.VisualStateGroups>
                                 <VisualStateGroup x:Name="CommonStates">
                                     <VisualState x:Name="Normal" />
-                                    <VisualState x:Name="Disabled" />
+                                    <VisualState x:Name="Disabled" />    
                                     <VisualState x:Name="MouseOver" />
                                 </VisualStateGroup>
                             </VisualStateManager.VisualStateGroups>
