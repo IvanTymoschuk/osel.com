@@ -13,7 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using System.IO;
+using System.Xml.Serialization;
 namespace WpfApp1
 {
     /// <summary>
@@ -21,12 +22,14 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
+
+
         ObservableCollection<Advertisment> adverts = new ObservableCollection<Advertisment>();
 
         public MainWindow()
         {
             InitializeComponent();
-            adverts.Add(new Advertisment("Tovar", 50, "Dich", "Govnotovary","Rivne", DateTime.Now));
+            adverts.Add(new Advertisment("Tovar", 50, "Dich", "Govnotovary", "Rivne", DateTime.Now));
             adverts.Add(new Advertisment("Aovar", 50, "Dich", "Govnotovary", "Rivne", DateTime.Now));
             adverts.Add(new Advertisment("Novar", 50, "Dich", "Govnotovary", "Rivne", DateTime.Now));
 
@@ -41,16 +44,34 @@ namespace WpfApp1
 
 
 
-            View.ItemsSource =adverts;
+            View.ItemsSource = adverts;
             //DONT USE!!!!!!
+          //  Loginned();
+            ReadXML();
+        }
+
+        private void Loginned()
+        {
             Autorization aut = new Autorization();
             aut.ShowDialog();
             if (aut.DialogResult == false)
                 this.Close();
-            this.Title ="Osel.com CONECTED: "+ aut.user_name;
+            this.Title = "Osel.com CONECTED: " + aut.user_name;
         }
 
-        private void ModeSort_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ReadXML()
+    {
+        if (File.Exists("tovar.xml") == true)
+        {
+
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(ObservableCollection<Advertisment>));
+            using (FileStream fs = new FileStream("tovar.xml", FileMode.Open))
+            {
+                    adverts = (ObservableCollection<Advertisment>)xmlSerializer.Deserialize(fs);
+            }
+        }
+    }
+    private void ModeSort_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             switch(ModeSort.SelectionBoxItem.ToString())
             {
@@ -63,7 +84,11 @@ namespace WpfApp1
 
         private void Window_Closed(object sender, EventArgs e)
         {
-
+            using (FileStream fs = new FileStream("tovar.xml", FileMode.Create))
+            {
+                XmlSerializer xmlSerializer = new XmlSerializer(typeof(ObservableCollection<Advertisment>));
+                xmlSerializer.Serialize(fs, adverts);
+            }
         }
     }
 
