@@ -23,5 +23,15 @@ namespace WpfApp1
         {
             InitializeComponent();
         }
+
+        private void add_btn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void close_btn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
