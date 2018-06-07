@@ -25,7 +25,7 @@
         <TextBox Name="Price" Grid.Row="3" HorizontalAlignment="Right" Width="270" Margin="5" TextAlignment="Left" MaxLength="12"></TextBox>
         <ComboBox Name="City" Grid.Row="2" HorizontalAlignment="Right" Width="270" Margin="5" IsReadOnly="True"></ComboBox>
         <PasswordBox Name="Type"  Grid.Row="4" HorizontalAlignment="Right" Margin="5" Width="270"></PasswordBox>
-        <Button Grid.Row="5" Name="reg_btn" Width="180" HorizontalAlignment="Left" Content="Reg" Click="reg_btn_Click"></Button>
+        <Button Grid.Row="5" Name="add_btn" Width="180" HorizontalAlignment="Left" Content="Reg" Click="add_btn_Click"></Button>
         <Button Grid.Row="5" Width="170" Name="close_btn" HorizontalAlignment="Right" Content="Cancel" Click="close_btn_Click"></Button>
     </Grid>
 </Window>
