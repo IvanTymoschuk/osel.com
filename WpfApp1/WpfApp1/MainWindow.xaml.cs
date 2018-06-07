@@ -60,6 +60,11 @@ namespace WpfApp1
                     break;
             }
         }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

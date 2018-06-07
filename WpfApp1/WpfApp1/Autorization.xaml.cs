@@ -55,17 +55,9 @@ namespace WpfApp1
             foreach (var el in list)
                 if (el.login == this.Login.Text && el.password == this.Pass.Password)
                 {
-                    if (el.isBanned == true)
-                    {
-                        MessageBox.Show("You has banned", "BANNED", MessageBoxButton.OK);
-                        return;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Connect");
                         user_name = el.login ;
                         this.DialogResult = true;
-                    }
+                    break;
                 }
                 else
                 {
