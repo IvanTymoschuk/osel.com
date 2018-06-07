@@ -29,9 +29,9 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
-            adverts.Add(new Advertisment("Tovar", 50, "Dich", "Govnotovary","Rivne", new DateTime(2018, 6, 7, 15, 15, 0)));
-            adverts.Add(new Advertisment("Aovar",45, "Dich", "Govnotovary", "Rivne", new DateTime(2018,6,7,15,0,0)));
-            adverts.Add(new Advertisment("Novar", 68, "Dich", "Govnotovary", "Rivne", DateTime.Now));
+            adverts.Add(new Advertisment("Tovar", 50, "Dich", "Govnotovary","Rivne", new DateTime(2018, 6, 7, 15, 15, 0),new User()));
+            adverts.Add(new Advertisment("Aovar",45, "Dich", "Govnotovary", "Rivne", new DateTime(2018,6,7,15,0,0),new User()));
+            adverts.Add(new Advertisment("Novar", 68, "Dich", "Govnotovary", "Rivne", DateTime.Now, new User()));
 
 
 
@@ -102,18 +102,18 @@ namespace WpfApp1
 
         private void Window_Closed(object sender, EventArgs e)
         {
-
+             using (FileStream fs = new FileStream("tovar.xml", FileMode.Create))
+                        {
+                            XmlSerializer xmlSerializer = new XmlSerializer(typeof(ObservableCollection<Advertisment>));
+                            xmlSerializer.Serialize(fs, adverts);
+                        }
         }
 
         private void MyRoom_Click(object sender, RoutedEventArgs e)
         {
             Add add = new Add();
             add.ShowDialog();
-            using (FileStream fs = new FileStream("tovar.xml", FileMode.Create))
-            {
-                XmlSerializer xmlSerializer = new XmlSerializer(typeof(ObservableCollection<Advertisment>));
-                xmlSerializer.Serialize(fs, adverts);
-            }
+           
         }
     }
 
