@@ -15,6 +15,7 @@ namespace WpfApp1
         public string Type { get; set; }
         public string City { get; set; }
         public DateTime Date { get; set; }
+        public User user { get; set; }
 
         public Advertisment()
         {
@@ -26,7 +27,9 @@ namespace WpfApp1
                             string Descript,
                             string Type,
                             string City,
-                            DateTime Date)
+                            DateTime Date,
+                            User user
+            )
         {
             this.Name = Name;
             this.Price = Price;
@@ -34,6 +37,7 @@ namespace WpfApp1
             this.City = City;
             this.Type = Type;
             this.Date = Date;
+            this.user = user;
         }
     }
 }

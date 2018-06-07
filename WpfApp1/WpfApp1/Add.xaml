@@ -5,8 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Add" Height="450" Width="800">
+        Title="Add" Height="241.305" Width="376.087">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"></RowDefinition>
+            <RowDefinition Height="35"></RowDefinition>
+            <RowDefinition Height="35"></RowDefinition>
+            <RowDefinition Height="35"></RowDefinition>
+            <RowDefinition Height="35"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Name: " Grid.Row="0" Width="70" Margin="0,0,5,0" HorizontalAlignment="Left" TextAlignment="Right"></TextBlock>
+        <TextBlock Text="Description: " Grid.Row="1" Width="70" Margin="0,0,5,0" HorizontalAlignment="Left" TextAlignment="Right"></TextBlock>
+        <TextBlock Text="City: " Grid.Row="2" Width="70" Margin="0,0,5,0" HorizontalAlignment="Left" TextAlignment="Right"></TextBlock>
+        <TextBlock Text="Price: " Grid.Row="3" Width="70" Margin="0,0,5,0" HorizontalAlignment="Left" TextAlignment="Right"></TextBlock>
+        <TextBlock Text="Type: " Grid.Row="4" Width="70" Margin="0,0,5,0" HorizontalAlignment="Left" TextAlignment="Right"></TextBlock>
+        <TextBox Name="Name" Grid.Row="0" HorizontalAlignment="Right" Width="270" Margin="5" TextAlignment="Left"></TextBox>
+        <TextBox Name="Descript" Grid.Row="1" HorizontalAlignment="Right" Width="270" Margin="5" TextAlignment="Left"></TextBox>
+        <TextBox Name="Price" Grid.Row="3" HorizontalAlignment="Right" Width="270" Margin="5" TextAlignment="Left" MaxLength="12"></TextBox>
+        <ComboBox Name="City" Grid.Row="2" HorizontalAlignment="Right" Width="270" Margin="5" IsReadOnly="True"></ComboBox>
+        <PasswordBox Name="Type"  Grid.Row="4" HorizontalAlignment="Right" Margin="5" Width="270"></PasswordBox>
+        <Button Grid.Row="5" Name="reg_btn" Width="180" HorizontalAlignment="Left" Content="Reg" Click="reg_btn_Click"></Button>
+        <Button Grid.Row="5" Width="170" Name="close_btn" HorizontalAlignment="Right" Content="Cancel" Click="close_btn_Click"></Button>
     </Grid>
 </Window>

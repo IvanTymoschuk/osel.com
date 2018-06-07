@@ -29,9 +29,7 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
-            adverts.Add(new Advertisment("Tovar", 50, "Dich", "Govnotovary", "Rivne", DateTime.Now));
-            adverts.Add(new Advertisment("Aovar", 50, "Dich", "Govnotovary", "Rivne", DateTime.Now));
-            adverts.Add(new Advertisment("Novar", 50, "Dich", "Govnotovary", "Rivne", DateTime.Now));
+
 
 
 
