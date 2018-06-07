@@ -13,5 +13,9 @@ namespace WpfApp1
     /// </summary>
     public partial class App : Application
     {
+        private void Window_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            ((Window)sender).DragMove();
+        }
     }
 }

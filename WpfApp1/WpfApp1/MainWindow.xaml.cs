@@ -121,6 +121,12 @@ namespace WpfApp1
             Description description = new Description();
             description.Show();
         }
+
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 
 }

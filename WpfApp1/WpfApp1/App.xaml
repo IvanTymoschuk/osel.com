@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:WpfApp1"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <LinearGradientBrush x:Key="BackItem" StartPoint="0,0" EndPoint="1,1">
+        <LinearGradientBrush x:Key="BackItem" StartPoint="0,0" EndPoint="1,0">
             <GradientStop Color="#FFCEF9F3" Offset="0.1"></GradientStop>
             <GradientStop Color="#FFECF9CA" Offset="0.3"></GradientStop>
             <GradientStop Color="#FFF5BCBC" Offset="0.6"></GradientStop>
@@ -75,6 +75,31 @@
 
         <!--_______________________________________________________________________-->
 
+
+
+
+
+        <Style x:Key="WindowStyle" TargetType="Window">
+            <Setter Property="WindowStyle" Value="None"></Setter>
+            <Setter Property="AllowsTransparency" Value="True"></Setter>
+            <EventSetter Event="MouseDown" Handler="Window_MouseDown"></EventSetter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Window">
+                        <Border Background="{StaticResource MainBack}" CornerRadius="20" BorderThickness="5" BorderBrush="Black">
+                            
+                                <ContentPresenter/>
+                         
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+        
+        
+        
+        
         <ControlTemplate x:Key="ButtTempalte" TargetType="Button" >
 
             <Grid >

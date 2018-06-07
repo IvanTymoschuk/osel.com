@@ -21,12 +21,15 @@ namespace WpfApp1
     {
         public Description()
         {
+            Advertisment advertisment = new Advertisment("Moloko", 20, "Moloko ot korovi", "Drink", "Selo", DateTime.Now, new User() { login = "vasyan"});
             InitializeComponent();
+            
+            grid.DataContext = advertisment;
         }
 
         private void BackBut_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
     }
 }

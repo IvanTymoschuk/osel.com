@@ -6,12 +6,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Osel.com" Height="450" Width="800">
+        Title="Osel.com" Height="450" Width="800" Style="{StaticResource WindowStyle}" >
     
     
-    <Grid Background="{StaticResource MainBack}">
-        <StackPanel>
-            <TextBlock Name="name" Style="{StaticResource MainName}" Text="Osёl.com" HorizontalAlignment="Center">
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Button Width="30" Height="30" HorizontalAlignment="Right" Margin="0,0,10,0" Click="Button_Click"></Button>
+        
+        <TextBlock Grid.RowSpan="2" Name="name" Style="{StaticResource MainName}" Text="Osёl.com" HorizontalAlignment="Center">
                 <TextBlock.Effect>
                 <DropShadowEffect
                   ShadowDepth="4"
@@ -23,23 +30,22 @@
             </TextBlock>
             
             
-            <Grid >
+            <Grid Grid.Row="2" >
                 <ComboBox Name="ModeSort" Text="Sorting" HorizontalAlignment="Left" Width="150" SelectionChanged="ModeSort_SelectionChanged"></ComboBox>
                 <Button Name="MyRoom" Content="Add" HorizontalAlignment="Right" Width="150" Click="MyRoom_Click" ></Button>
                
             </Grid>
-            
-            
-            <ListView  Style="{DynamicResource PanelStyle}" 
+
+
+        <ListView Grid.Row="3" Style="{DynamicResource PanelStyle}" 
                   MouseDoubleClick="View_MouseDoubleClick"
                    Name="View" HorizontalContentAlignment="Center" >
-                <ListView.Background>
-                    <ImageBrush/>
-                </ListView.Background>
-       
+            <ListView.Background>
+                <ImageBrush/>
+            </ListView.Background>
 
-            </ListView>
-        </StackPanel>
+
+        </ListView>
     </Grid>
 
 </Window>
