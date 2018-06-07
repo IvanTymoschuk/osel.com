@@ -27,6 +27,11 @@ namespace WpfApp1
         {
             InitializeComponent();
             this.City.Items.Add("RIVNE");
+            ReadXML();
+        }
+
+        private void ReadXML()
+        {
             if (File.Exists("user.xml") == true)
             {
 
@@ -40,10 +45,9 @@ namespace WpfApp1
 
         private void reg_btn_Click(object sender, RoutedEventArgs e)
         {
-            User user = new User(this.Login.Text, this.Pass.Password, this.City.SelectedItem.ToString(), this.Phone.Text);
-            list.Add(user);
-             
-           
+            list.Add( new User(this.Login.Text, this.Pass.Password, this.City.SelectedItem.ToString(), this.Phone.Text));
+            MessageBox.Show("Please log in");
+            this.DialogResult = true;
             this.Close();
         }
 
@@ -54,9 +58,10 @@ namespace WpfApp1
 
         private void Window_Closed(object sender, EventArgs e)
         {
-            XmlSerializer xmlSerializer = new XmlSerializer(typeof(ObservableCollection<User>));
+
             using (FileStream fs = new FileStream("user.xml", FileMode.Create))
             {
+                XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<User>));
                 xmlSerializer.Serialize(fs, list);
             }
         }

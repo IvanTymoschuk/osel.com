@@ -22,10 +22,15 @@ namespace WpfApp1
     /// </summary>
     public partial class Autorization : Window
     {
+        public string user_name { get; set; }
         public List<User> list = new List<User>();
         public Autorization()
         {
             InitializeComponent();
+            ReadXML();
+        }
+        private void ReadXML()
+        {
             if (File.Exists("user.xml") == true)
             {
 
@@ -35,25 +40,37 @@ namespace WpfApp1
                     list = (List<User>)xmlSerializer.Deserialize(fs);
                 }
             }
-            else
-                list.Add(new User());
         }
-
         private void reg_btn_Click(object sender, RoutedEventArgs e)
         {
             Registration new_acc = new Registration();
-            new_acc.Show();;
-            this.Close();
+            new_acc.ShowDialog();
+            if (new_acc.DialogResult == true)
+                list.Clear();
+                ReadXML();
         }
 
         private void login_btn_Click(object sender, RoutedEventArgs e)
         {
             foreach (var el in list)
                 if (el.login == this.Login.Text && el.password == this.Pass.Password)
-                    MessageBox.Show("Connect");
+                {
+                    if (el.isBanned == true)
+                    {
+                        MessageBox.Show("You has banned", "BANNED", MessageBoxButton.OK);
+                        return;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Connect");
+                        user_name = el.login ;
+                        this.DialogResult = true;
+                    }
+                }
                 else
                 {
                     MessageBox.Show("Login or password is valid");
+                    this.Pass.Password = "";
                     return;
                 }
         }

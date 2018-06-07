@@ -30,8 +30,11 @@ namespace WpfApp1
             adverts.Add(new Advertisment("Tovar", "50$", "Dich", "Govnotovary", "Rivne", DateTime.Now));
             View.ItemsSource =adverts;
             //DONT USE!!!!!!
-            //Autorization aut = new Autorization();
-           // aut.Show();
+            Autorization aut = new Autorization();
+            aut.ShowDialog();
+            if (aut.DialogResult == false)
+                this.Close();
+            this.Title ="Osel.com CONECTED: "+ aut.user_name;
         }
 
     }
