@@ -46,7 +46,7 @@ namespace WpfApp1
             Registration new_acc = new Registration();
             new_acc.ShowDialog();
             if (new_acc.DialogResult == true)
-                list.Clear();
+               list.Clear();
                 ReadXML();
         }
 

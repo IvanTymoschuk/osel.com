@@ -66,6 +66,8 @@ namespace WpfApp1
                 this.DialogResult = true;
                 this.Close();
             }
+            //380 93 33 63 521 - Osel.com
+
             return;
         }
 
