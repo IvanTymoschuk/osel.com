@@ -30,12 +30,11 @@ namespace WpfApp1
             InitializeComponent();
             this.user = user;
             this.adverts = adverts;
-            this.City.Items.Add("RIVNE");
-        }
+         }
 
         private void add_btn_Click(object sender, RoutedEventArgs e)
         {
-            if (String.IsNullOrEmpty(this.Name.Text)==true|| String.IsNullOrEmpty(this.Descript.Text) == true|| String.IsNullOrEmpty(this.City.SelectedItem.ToString()) == true|| String.IsNullOrEmpty(this.Price.Text) == true|| String.IsNullOrEmpty(this.Type.Text) == true)
+            if (String.IsNullOrEmpty(this.Name.Text)==true|| String.IsNullOrEmpty(this.Descript.Text) == true|| String.IsNullOrEmpty(this.City.Text) == true|| String.IsNullOrEmpty(this.Price.Text) == true|| String.IsNullOrEmpty(this.Type.Text) == true)
             {
                 MessageBox.Show("Please input all field");
                 return;
@@ -52,7 +51,7 @@ namespace WpfApp1
                     MessageBox.Show("Valid PRICE ");
                     return;
                 }
-                adverts.Add( new Advertisment(this.Name.Text, price, this.Descript.Text, this.Type.Text, this.City.SelectedItem.ToString(), DateTime.Now, user));
+                adverts.Add( new Advertisment(this.Name.Text, price, this.Descript.Text, this.Type.Text, this.City.Text, DateTime.Now, user));
                 DialogResult = true;
                 this.Close();
             }

@@ -15,6 +15,8 @@ using System.IO;
 using System.Xml.Serialization;
 
 using System.Collections.ObjectModel;
+using System.Text.RegularExpressions;
+
 namespace WpfApp1
 {
     /// <summary>
@@ -26,7 +28,6 @@ namespace WpfApp1
         public Registration()
         {
             InitializeComponent();
-            this.City.Items.Add("RIVNE");
             ReadXML();
         }
 
@@ -45,10 +46,27 @@ namespace WpfApp1
 
         private void reg_btn_Click(object sender, RoutedEventArgs e)
         {
-            list.Add( new User(this.Login.Text, this.Pass.Password, this.City.SelectedItem.ToString(), this.Phone.Text));
-            MessageBox.Show("Please log in");
-            this.DialogResult = true;
-            this.Close();
+            foreach (var el in list)
+                if (el.login == this.Login.Text)
+                {
+                    MessageBox.Show("Login exist");
+                    return;
+
+                }
+
+            if (string.IsNullOrEmpty(this.Login.Text) == true || string.IsNullOrEmpty(this.City.Text) == true || string.IsNullOrEmpty(this.Phone.Text) == true || string.IsNullOrEmpty(this.Pass.Password) == true)
+                MessageBox.Show("Please input all field");
+            else
+            if (Regex.IsMatch(this.Phone.Text, @"\d{12}") == false)
+                MessageBox.Show("Phone valid");
+            else
+            {
+                list.Add(new User(this.Login.Text, this.Pass.Password, this.City.Text), this.Phone.Text));
+                MessageBox.Show("Please log in");
+                this.DialogResult = true;
+                this.Close();
+            }
+            return;
         }
 
         private void close_btn_Click(object sender, RoutedEventArgs e)
