@@ -31,7 +31,7 @@
             
             
             <ListView  Style="{DynamicResource PanelStyle}" 
-                  
+                  MouseDoubleClick="View_MouseDoubleClick"
                    Name="View" HorizontalContentAlignment="Center" >
                 <ListView.Background>
                     <ImageBrush/>

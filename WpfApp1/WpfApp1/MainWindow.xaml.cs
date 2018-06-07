@@ -115,6 +115,12 @@ namespace WpfApp1
             add.ShowDialog();
            
         }
+
+        private void View_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Description description = new Description();
+            description.Show();
+        }
     }
 
 }
