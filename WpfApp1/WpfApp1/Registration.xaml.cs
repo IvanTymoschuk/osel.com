@@ -61,7 +61,7 @@ namespace WpfApp1
                 MessageBox.Show("Phone valid");
             else
             {
-                list.Add(new User(this.Login.Text, this.Pass.Password, this.City.Text), this.Phone.Text));
+                list.Add(new User(this.Login.Text, this.Pass.Password, this.City.Text, this.Phone.Text));
                 MessageBox.Show("Please log in");
                 this.DialogResult = true;
                 this.Close();
