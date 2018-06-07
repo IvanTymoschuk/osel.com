@@ -22,7 +22,7 @@ namespace WpfApp1
     /// </summary>
     public partial class Autorization : Window
     {
-        public string user_name { get; set; }
+        public User user_name { get; set; }
         public List<User> list = new List<User>();
         public Autorization()
         {
@@ -55,7 +55,7 @@ namespace WpfApp1
             foreach (var el in list)
                 if (el.login == this.Login.Text && el.password == this.Pass.Password)
                 {
-                        user_name = el.login ;
+                        user_name = el;
                         this.DialogResult = true;
                     break;
                 }

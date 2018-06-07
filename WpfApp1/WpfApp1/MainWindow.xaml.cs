@@ -24,15 +24,12 @@ namespace WpfApp1
     {
 
 
-        ObservableCollection<Advertisment> adverts = new ObservableCollection<Advertisment>();
+       public ObservableCollection<Advertisment> adverts = new ObservableCollection<Advertisment>();
 
         public MainWindow()
         {
             InitializeComponent();
-            adverts.Add(new Advertisment("Tovar", 50, "Dich", "Govnotovary","Rivne", new DateTime(2018, 6, 7, 15, 15, 0),new User()));
-            adverts.Add(new Advertisment("Aovar",45, "Dich", "Govnotovary", "Rivne", new DateTime(2018,6,7,15,0,0),new User()));
-            adverts.Add(new Advertisment("Novar", 68, "Dich", "Govnotovary", "Rivne", DateTime.Now, new User()));
-
+       
 
 
             ModeSort.Items.Add("Price UP");
@@ -43,13 +40,14 @@ namespace WpfApp1
             ModeSort.Items.Add("Date");
 
 
-
+            ReadXML();
             View.ItemsSource = adverts;
             //DONT USE!!!!!!
-          //  Loginned();
-            ReadXML();
-        }
 
+            Loginned();
+           
+        }
+        private User user;
         private void Loginned()
         {
             Autorization aut = new Autorization();
@@ -57,6 +55,7 @@ namespace WpfApp1
             if (aut.DialogResult == false)
                 this.Close();
             this.Title = "Osel.com CONECTED: " + aut.user_name;
+            user = aut.user_name;
         }
 
         private void ReadXML()
@@ -111,9 +110,11 @@ namespace WpfApp1
 
         private void MyRoom_Click(object sender, RoutedEventArgs e)
         {
-            Add add = new Add();
+            Add add = new Add(user, adverts);
             add.ShowDialog();
-           
+            if(add.DialogResult==true)
+            View.ItemsSource = adverts;
+         
         }
     }
 
