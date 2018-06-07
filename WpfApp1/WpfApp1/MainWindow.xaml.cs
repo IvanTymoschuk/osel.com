@@ -116,6 +116,12 @@ namespace WpfApp1
             View.ItemsSource = adverts;
          
         }
+
+        private void View_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Description description = new Description();
+            description.Show();
+        }
     }
 
 }
