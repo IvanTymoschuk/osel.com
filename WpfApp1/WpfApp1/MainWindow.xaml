@@ -23,10 +23,11 @@
             </TextBlock>
             
             
-            <StackPanel Orientation="Horizontal">
-                <ComboBox Name="ModeSort" Text="Sorting" Width="100" SelectionChanged="ModeSort_SelectionChanged"></ComboBox>
+            <Grid >
+                <ComboBox Name="ModeSort" Text="Sorting" HorizontalAlignment="Left" Width="150" SelectionChanged="ModeSort_SelectionChanged"></ComboBox>
+                <Button Name="MyRoom" Content="Add" HorizontalAlignment="Right" Width="150" Click="MyRoom_Click" ></Button>
                
-            </StackPanel>
+            </Grid>
             
             
             <ListView  Style="{DynamicResource PanelStyle}" 
