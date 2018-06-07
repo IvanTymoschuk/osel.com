@@ -24,7 +24,7 @@
         <TextBlock Text="PASSWORD: " Grid.Row="4" Width="70" Margin="0,0,5,0" HorizontalAlignment="Left" TextAlignment="Right"></TextBlock>
         <TextBox Name="Login" Grid.Row="1" HorizontalAlignment="Right" Width="270" Margin="5" TextAlignment="Left"></TextBox>
         <TextBox Name="Phone" Grid.Row="3" HorizontalAlignment="Right" Width="270" Margin="5" TextAlignment="Left" MaxLength="12"></TextBox>
-        <ComboBox Name="City" Grid.Row="2" HorizontalAlignment="Right" Width="270" Margin="5" IsReadOnly="True"></ComboBox>
+        <TextBox Name="City" Grid.Row="2" HorizontalAlignment="Right" Width="270" Margin="5"></TextBox>
         <PasswordBox Name="Pass"  Grid.Row="4" HorizontalAlignment="Right" Margin="5" Width="270"></PasswordBox>
         <Button Grid.Row="5" Name="reg_btn" Width="180" HorizontalAlignment="Left" Content="Reg" Click="reg_btn_Click"></Button>
         <Button Grid.Row="5" Width="170" Name="close_btn" HorizontalAlignment="Right" Content="Cancel" Click="close_btn_Click"></Button>
