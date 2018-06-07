@@ -23,7 +23,7 @@
         <TextBox Name="Name" Grid.Row="0" HorizontalAlignment="Right" Width="270" Margin="5" TextAlignment="Left"></TextBox>
         <TextBox Name="Descript" Grid.Row="1" HorizontalAlignment="Right" Width="270" Margin="5" TextAlignment="Left"></TextBox>
         <TextBox Name="Price" Grid.Row="3" HorizontalAlignment="Right" Width="270" Margin="5" TextAlignment="Left" MaxLength="12"></TextBox>
-        <TextBox Name="City" Grid.Row="2" HorizontalAlignment="Right" Width="270" Margin="5" IsReadOnly="True"></TextBox>
+        <TextBox Name="City" Grid.Row="2" HorizontalAlignment="Right" Width="270" Margin="5"></TextBox>
         <TextBox Name="Type"  Grid.Row="4" HorizontalAlignment="Right" Margin="5" Width="270"></TextBox>
         <Button Grid.Row="5" Name="add_btn" Width="180" HorizontalAlignment="Left" Content="Reg" Click="add_btn_Click"></Button>
         <Button Grid.Row="5" Width="170" Name="close_btn" HorizontalAlignment="Right" Content="Cancel" Click="close_btn_Click"></Button>
