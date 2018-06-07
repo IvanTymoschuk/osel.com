@@ -23,8 +23,8 @@
             
             
             <StackPanel Orientation="Horizontal">
-                <ComboBox Name="ModeSort" Text="Sorting"></ComboBox>
-                <Button Content="OK"></Button>
+                <ComboBox Name="ModeSort" Text="Sorting" Width="100" SelectionChanged="ModeSort_SelectionChanged"></ComboBox>
+               
             </StackPanel>
             
             

@@ -26,8 +26,21 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
-            adverts.Add(new Advertisment("Tovar", "50$", "Dich", "Govnotovary","Rivne", DateTime.Now));
-            adverts.Add(new Advertisment("Tovar", "50$", "Dich", "Govnotovary", "Rivne", DateTime.Now));
+            adverts.Add(new Advertisment("Tovar", 50, "Dich", "Govnotovary","Rivne", DateTime.Now));
+            adverts.Add(new Advertisment("Aovar", 50, "Dich", "Govnotovary", "Rivne", DateTime.Now));
+            adverts.Add(new Advertisment("Novar", 50, "Dich", "Govnotovary", "Rivne", DateTime.Now));
+
+
+
+            ModeSort.Items.Add("Price UP");
+            ModeSort.Items.Add("Price DOWN");
+            ModeSort.Items.Add("Type");
+            ModeSort.Items.Add("Name");
+            ModeSort.Items.Add("City");
+            ModeSort.Items.Add("Date");
+
+
+
             View.ItemsSource =adverts;
             //DONT USE!!!!!!
             Autorization aut = new Autorization();
@@ -37,6 +50,16 @@ namespace WpfApp1
             this.Title ="Osel.com CONECTED: "+ aut.user_name;
         }
 
+        private void ModeSort_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            switch(ModeSort.SelectionBoxItem.ToString())
+            {
+                case "Name":
+                    adverts.OrderBy(k => k);
+                    //adverts.
+                    break;
+            }
+        }
     }
 
 }
