@@ -37,7 +37,7 @@
             </Grid>
 
 
-        <ListView Grid.Row="3" Style="{DynamicResource PanelStyle}" 
+        <ListView Grid.Row="3" Style="{StaticResource PanelStyle}" 
                   MouseDoubleClick="View_MouseDoubleClick"
                    Name="View" HorizontalContentAlignment="Center" >
             <ListView.Background>

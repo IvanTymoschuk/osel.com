@@ -21,8 +21,8 @@
             <Setter Property="FontWeight" Value="Bold"></Setter>
             <Setter Property="FontSize" Value="60"></Setter>
         </Style>
-        
-        
+
+
         <DataTemplate x:Key="BookTemplate"  >
 
             <Border Margin="2" BorderThickness="0" Background="{StaticResource BackItem}" Width="500">
@@ -47,13 +47,13 @@
                     <TextBlock Grid.Column="1" Grid.Row="2" Margin="3" HorizontalAlignment="Right"  FontSize="15" Text="{Binding Path=Type}"/>
                 </Grid>
             </Border>
-            
+
 
         </DataTemplate>
         <Style  x:Key="PanelStyle" TargetType="ListView">
             <Setter Property="ItemTemplate" Value="{StaticResource BookTemplate}"/>
         </Style>
-          <!--_______________________________________________________________________-->
+        <!--_______________________________________________________________________-->
         <LinearGradientBrush x:Key="GradButt" StartPoint="0,0" EndPoint="1,0" Opacity="0.6">
             <GradientStop Color="DarkRed" Offset="0"></GradientStop>
             <GradientStop Color="Lime" Offset="1"></GradientStop>
@@ -87,44 +87,20 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="Window">
                         <Border Background="{StaticResource MainBack}" CornerRadius="20" BorderThickness="5" BorderBrush="Black">
-                            
-                                <ContentPresenter/>
-                         
+
+                            <ContentPresenter/>
+
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
-        
-        
-        
-        
-        
-        <ControlTemplate x:Key="ButtTempalte" TargetType="Button" >
-
-            <Grid >
-                <Border Height="40" Width="80" Name="Border" Background="{DynamicResource GradButt}" BorderBrush="{DynamicResource GradButt1}" BorderThickness="15"  CornerRadius="7" >
 
 
 
 
-                </Border>
 
-                <ContentPresenter  HorizontalAlignment="Center" Height="40"  TextBlock.Foreground="Pink"  ></ContentPresenter>
-
-            </Grid>
-
-            <ControlTemplate.Triggers>
-                <Trigger Property="IsMouseOver" Value="true">
-                    <Setter TargetName="Border"  Property="Background" Value="LightGreen"></Setter>
-                    <Setter TargetName="Border"  Property="BorderBrush" Value="Sienna"></Setter>
-                </Trigger>
-                <Trigger Property="IsPressed" Value="true">
-                    <Setter TargetName="Border"  Property="Background" Value="Black"></Setter>
-                    <Setter TargetName="Border"  Property="BorderBrush" Value="DarkCyan"></Setter>
-                </Trigger>
-            </ControlTemplate.Triggers>
-        </ControlTemplate>
+       
 
         <!--_______________________________________________________________________-->
 
@@ -158,6 +134,7 @@
             <ControlTemplate.Triggers>
                 <Trigger Property="ToggleButton.IsMouseOver" Value="true">
                     <Setter TargetName="Border" Property="Background" Value="{StaticResource GradButt2}" />
+
                 </Trigger>
                 <Trigger Property="ToggleButton.IsChecked" Value="true">
                     <Setter TargetName="Border" Property="Background" Value="{StaticResource GradButt2}" />
@@ -320,14 +297,14 @@
             <Setter Property="AllowDrop"
           Value="true" />
             <Setter Property="Template">
-                <Setter.Value> 
+                <Setter.Value>
                     <ControlTemplate TargetType="{x:Type PasswordBox}">
                         <Border x:Name="Border"
                 CornerRadius="2"
                 Padding="2"
                 BorderThickness="1">
                             <Border.Background>
-                               
+
                                 <SolidColorBrush Opacity="0.6" Color="{DynamicResource ColorPas}" />
                             </Border.Background>
                             <Border.BorderBrush>
@@ -336,7 +313,7 @@
                             <VisualStateManager.VisualStateGroups>
                                 <VisualStateGroup x:Name="CommonStates">
                                     <VisualState x:Name="Normal" />
-                                    <VisualState x:Name="Disabled" />    
+                                    <VisualState x:Name="Disabled" />
                                     <VisualState x:Name="MouseOver" />
                                 </VisualStateGroup>
                             </VisualStateManager.VisualStateGroups>
@@ -347,7 +324,37 @@
             </Setter>
         </Style>
         <!--_______________________________________________________________________-->
+        <Style x:Key="{x:Type Button}" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}" >
 
+                        <Grid >
+                            <Border  Name="Border" Background="{DynamicResource GradButt3}" BorderBrush="Black" BorderThickness="2"  CornerRadius="7" >
+
+
+
+                                <ContentPresenter  HorizontalAlignment="Center"    ></ContentPresenter>
+
+                            </Border>
+
+
+                        </Grid>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter TargetName="Border"  Property="Background" Value="LightGreen"></Setter>
+                                <Setter TargetName="Border"  Property="BorderBrush" Value="Sienna"></Setter>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter TargetName="Border"  Property="Background" Value="Black"></Setter>
+                                <Setter TargetName="Border"  Property="BorderBrush" Value="DarkCyan"></Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
     </Application.Resources>
 </Application>
