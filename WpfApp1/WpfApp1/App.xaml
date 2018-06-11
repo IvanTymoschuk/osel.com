@@ -50,9 +50,24 @@
 
 
         </DataTemplate>
+ 
+        
         <Style  x:Key="PanelStyle" TargetType="ListView">
             <Setter Property="ItemTemplate" Value="{StaticResource BookTemplate}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListBox}">
+                        <ScrollViewer x:Name="ScrollViewer">
+                            <ItemsPresenter/>
+                        </ScrollViewer>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
+        
+        
+        
+        
         <!--_______________________________________________________________________-->
         <LinearGradientBrush x:Key="GradButt" StartPoint="0,0" EndPoint="1,0" Opacity="0.6">
             <GradientStop Color="DarkRed" Offset="0"></GradientStop>
@@ -98,9 +113,33 @@
 
 
 
+        <Style x:Key="MainWindowStyle" TargetType="Window">
+            <Setter Property="WindowStyle" Value="None"></Setter>
+            <Setter Property="AllowsTransparency" Value="True"></Setter>
+            <EventSetter Event="MouseDown" Handler="Window_MouseDown"></EventSetter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Window">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="100"/>
+                                <RowDefinition/>
+
+                            </Grid.RowDefinitions>
+                            <Border Grid.Row="1" Background="{StaticResource MainBack}" CornerRadius="20" BorderThickness="5" BorderBrush="Black">
+
+                                <ContentPresenter/>
+
+                            </Border>
+                        </Grid>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
 
-       
+
 
         <!--_______________________________________________________________________-->
 

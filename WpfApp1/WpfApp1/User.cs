@@ -5,16 +5,35 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Xml.Serialization;
+using System.ComponentModel;
 namespace WpfApp1
 {
     [Serializable]
-    public class User
+    public class User: IDataErrorInfo
     {
         public string login { get; set; }
         public string password { get; set; }
         public string city { get; set; }
         public string phone { get; set; }
         public bool isBanned { get; set; }
+
+        public string Error => throw new NotImplementedException();
+
+        public string this[string columnName]
+        {
+            get
+            {
+                string m = "";
+                switch(columnName)
+                {
+                    case "login":
+                        if (login.Contains("lox"))
+                            m = "Bad language";
+                        break;
+                }
+                return m;
+            }
+        }
 
         private string random_login()
         {
