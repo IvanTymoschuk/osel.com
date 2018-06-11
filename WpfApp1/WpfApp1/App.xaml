@@ -29,7 +29,9 @@
                 <Border.Effect>
                     <DropShadowEffect />
                 </Border.Effect>
-                <Grid>
+
+                <Border Margin="2" BorderThickness="2" Background="{StaticResource BackItem}" Width="495">
+                    <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
@@ -46,6 +48,7 @@
                     <TextBlock Grid.Column="0" Grid.Row="2" Margin="3" HorizontalAlignment="Left"  FontSize="14" Text="{Binding Path=Date}"/>
                     <TextBlock Grid.Column="1" Grid.Row="2" Margin="3" HorizontalAlignment="Right"  FontSize="15" Text="{Binding Path=Type}"/>
                 </Grid>
+                    </Border>
             </Border>
 
 
@@ -399,7 +402,13 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        
+
+
+
+        <RadialGradientBrush x:Key="GradCloseColor"   >
+            <GradientStop Color="White" Offset="0.6"></GradientStop>
+            <GradientStop Color="Red" Offset="0.4"></GradientStop>
+        </RadialGradientBrush>
         <Style x:Key="CloseBut" TargetType="Button">
             <Setter Property="Template">
                 <Setter.Value>
@@ -407,34 +416,24 @@
 
                         <Grid >
                            
-                            <Ellipse Name="Border" Stroke="Red" StrokeThickness="2" Width="30" Height="30"></Ellipse>
-                            <Path
+                           <Path
                             Name="Crest"
                           Stroke="Red"
-                                StrokeThickness="2"
+                                StrokeThickness="8"
                           HorizontalAlignment="Center"
                           VerticalAlignment="Center"
                           Data="M 1 1 L 16 16 M 16 1 L 1 16 "/>
-                            <!--<Border  Name="Border" Background="Transparent" BorderBrush="Red" BorderThickness="2"  CornerRadius="15" >
-
-
-
-                                
-
-                            </Border>-->
-                            
 
                         </Grid>
 
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="true">
-                           
-                                <Setter TargetName="Border"  Property="Stroke" Value="Sienna"></Setter>
-                                <Setter TargetName="Crest" Property="StrokeThickness" Value="4"></Setter>
+                                
+                                <Setter TargetName="Crest" Property="Stroke" Value="{StaticResource GradCloseColor}"></Setter>
                             </Trigger>
                             <Trigger Property="IsPressed" Value="true">
-                                <Setter TargetName="Border"  Property="Fill" Value="Black"></Setter>
-                                <Setter TargetName="Border"  Property="StrokeThickness" Value="4"></Setter>
+                                <Setter TargetName="Crest" Property="Stroke" Value="White"></Setter>
+                                <Setter TargetName="Crest" Property="StrokeThickness" Value="8"></Setter>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
