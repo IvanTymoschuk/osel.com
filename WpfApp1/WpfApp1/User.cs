@@ -5,10 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Xml.Serialization;
+using System.ComponentModel;
+using System.Windows;
+
 namespace WpfApp1
 {
     [Serializable]
-    public class User
+    public class User : IDataErrorInfo
     {
         public string login { get; set; }
         public string password { get; set; }
@@ -16,6 +19,29 @@ namespace WpfApp1
         public string phone { get; set; }
         public bool isBanned { get; set; }
 
+        public string Error => throw new NotImplementedException();
+
+        public string this[string columnName]
+        {
+            get
+            {
+                string error = "";
+              
+                switch (columnName)
+                {
+                    case "login":
+                        if (login.Contains("lox"))
+                        {
+                            error = "Bad login";
+                            MessageBox.Show("Valid");
+                        }
+                        break;
+                }
+                return error;
+
+
+            }
+        } 
         private string random_login()
         {
             string log;

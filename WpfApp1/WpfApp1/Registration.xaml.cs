@@ -25,10 +25,12 @@ namespace WpfApp1
     public partial class Registration : Window
     {
         public List<User> list = new List<User>();
+        public User new_user= new User();
         public Registration()
         {
             InitializeComponent();
             ReadXML();
+            this.DataContext = new_user;
         }
 
         private void ReadXML()
@@ -43,7 +45,7 @@ namespace WpfApp1
                 }
             }
         }
-
+        
         private void reg_btn_Click(object sender, RoutedEventArgs e)
         {
             foreach (var el in list)

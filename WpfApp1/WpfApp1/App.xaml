@@ -243,8 +243,8 @@
             </Style.Triggers>
         </Style>
         <!--_______________________________________________________________________-->
-        <Style x:Key="{x:Type TextBox}" TargetType="{x:Type TextBoxBase}">
-            <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <!--<Style x:Key="{x:Type TextBox}" TargetType="{x:Type TextBoxBase}">-->
+            <!--<Setter Property="SnapsToDevicePixels" Value="True"/>
             <Setter Property="OverridesDefaultStyle" Value="True"/>
             <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
             <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
@@ -273,7 +273,12 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-        </Style>
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="True">
+                    <Setter TargetName="Border" Property="Background" Value="Green"></Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>-->
 
         <!--_______________________________________________________________________-->
         <Style x:Key="{x:Type PasswordBox}"
