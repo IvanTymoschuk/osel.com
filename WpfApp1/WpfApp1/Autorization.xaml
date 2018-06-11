@@ -5,19 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Autorization" Height="136.496" Width="358.674" ResizeMode="NoResize"  Style="{StaticResource WindowStyle}">
+        Title="Autorization" Height="150.496" Width="358.674" ResizeMode="NoResize"  Style="{StaticResource WindowStyle}">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
             <RowDefinition Height="35"></RowDefinition>
             <RowDefinition Height="35"></RowDefinition>
-            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
         </Grid.RowDefinitions>
         <TextBlock Text="LOGIN: " Grid.Row="1" Width="70" Margin="0,0,5,0" HorizontalAlignment="Left" TextAlignment="Right"></TextBlock>
         <TextBlock Text="PASSWORD: " Grid.Row="2" Width="70" Margin="0,0,5,0" HorizontalAlignment="Left" TextAlignment="Right"></TextBlock>
         <TextBox Name="Login" Grid.Row="1" HorizontalAlignment="Right" Width="270" Margin="5" TextAlignment="Left"></TextBox>
         <PasswordBox Name="Pass"  Grid.Row="2" HorizontalAlignment="Right" Margin="5" Width="270"></PasswordBox>
-        <Button Margin="5" Grid.Row="3" Name="login_btn" Width="180" HorizontalAlignment="Left" Content="Login" Click="login_btn_Click"></Button>
-        <Button Margin="5" Grid.Row="3" Width="170" Name="reg_btn" HorizontalAlignment="Right" Content="Registation" Click="reg_btn_Click"></Button>
+        <Button Margin="5" Grid.Row="3" Name="login_btn" Width="150" HorizontalAlignment="Left" Content="Login" Click="login_btn_Click"></Button>
+        <Button Margin="5" Grid.Row="3" Name="reg_btn" HorizontalAlignment="Right"  Width="150" Content="Registation" Click="reg_btn_Click"></Button>
     </Grid>
 </Window>

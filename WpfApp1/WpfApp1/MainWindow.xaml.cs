@@ -54,7 +54,7 @@ namespace WpfApp1
             aut.ShowDialog();
             if (aut.DialogResult == false)
                 this.Close();
-            this.Title = "Osel.com CONECTED: " + aut.user_name;
+            this.Title = "Osel.com CONECTED: " + aut.user_name.login;
             user = aut.user_name;
         }
 
