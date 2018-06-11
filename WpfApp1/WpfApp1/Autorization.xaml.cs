@@ -40,31 +40,45 @@ namespace WpfApp1
                     list = (List<User>)xmlSerializer.Deserialize(fs);
                 }
             }
+          
         }
         private void reg_btn_Click(object sender, RoutedEventArgs e)
         {
             Registration new_acc = new Registration();
             new_acc.ShowDialog();
             if (new_acc.DialogResult == true)
-               list.Clear();
+            {
+
+                list.Clear();
                 ReadXML();
+             
+            }
         }
 
         private void login_btn_Click(object sender, RoutedEventArgs e)
         {
+            int count_acc=0;
             foreach (var el in list)
+            {
+
                 if (el.login == this.Login.Text && el.password == this.Pass.Password)
                 {
-                        user_name = el;
-                        this.DialogResult = true;
+                    user_name = el;
+                    this.DialogResult = true;
+                    this.Close();
                     break;
                 }
                 else
-                {
-                    MessageBox.Show("Login or password is valid");
-                    this.Pass.Password = "";
-                    return;
-                }
+                    count_acc++;
+               
+            }
+            if (count_acc == list.Count)
+            {
+                count_acc = 0;
+                MessageBox.Show("Login or password is valid");
+                this.Pass.Password = "";
+                return;
+            }
         }
     }
 }

@@ -64,6 +64,11 @@ namespace WpfApp1
                 list.Add(new User(this.Login.Text, this.Pass.Password, this.City.Text, this.Phone.Text));
                 MessageBox.Show("Please log in");
                 this.DialogResult = true;
+                using (FileStream fs = new FileStream("user.xml", FileMode.Create))
+                {
+                    XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<User>));
+                    xmlSerializer.Serialize(fs, list);
+                }
                 this.Close();
             }
             //380 93 33 63 521 - Osel.com
@@ -79,11 +84,7 @@ namespace WpfApp1
         private void Window_Closed(object sender, EventArgs e)
         {
 
-            using (FileStream fs = new FileStream("user.xml", FileMode.Create))
-            {
-                XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<User>));
-                xmlSerializer.Serialize(fs, list);
-            }
+          
         }
     }
 }
