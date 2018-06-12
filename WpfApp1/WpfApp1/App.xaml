@@ -17,6 +17,7 @@
         </LinearGradientBrush>
 
         <Style TargetType="TextBlock" x:Key="MainName">
+            <Setter Property="Foreground" Value="White"></Setter>
             <Setter Property="FontFamily" Value="Segoe Print"></Setter>
             <Setter Property="FontWeight" Value="Bold"></Setter>
             <Setter Property="FontSize" Value="60"></Setter>
@@ -86,11 +87,11 @@
         </LinearGradientBrush>
         <LinearGradientBrush x:Key="GradButt2" StartPoint="0,0" EndPoint="1,0" Opacity="0.4">
             <GradientStop Color="Cyan" Offset="1"></GradientStop>
-            <GradientStop Color="Black" Offset="0"></GradientStop>
+            <GradientStop Color="White" Offset="0"></GradientStop>
         </LinearGradientBrush>
         <LinearGradientBrush x:Key="GradButt3" StartPoint="0,0" EndPoint="1,0" Opacity="0.6">
             <GradientStop Color="Cyan" Offset="0"></GradientStop>
-            <GradientStop Color="Black" Offset="1"></GradientStop>
+            <GradientStop Color="White" Offset="1"></GradientStop>
         </LinearGradientBrush>
         <Color x:Key="ColorPas"  >#00FFFF</Color>
         <Color x:Key="ColorPas2">#00FFFF</Color>
@@ -108,7 +109,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Window">
-                        <Border Background="{StaticResource MainBack}" CornerRadius="20" BorderThickness="5" BorderBrush="Black">
+                        <Border Background="{StaticResource MainBack}" CornerRadius="10" BorderThickness="5" BorderBrush="White">
 
                             <ContentPresenter/>
 
@@ -133,7 +134,7 @@
                                 <RowDefinition/>
 
                             </Grid.RowDefinitions>
-                            <Border Grid.Row="1" Background="{StaticResource MainBack}" CornerRadius="20" BorderThickness="5" BorderBrush="Black">
+                            <Border Grid.Row="1" Background="{StaticResource MainBack}" CornerRadius="10" BorderThickness="5" BorderBrush="White">
 
                                 <ContentPresenter/>
 
@@ -434,7 +435,7 @@
                     <ControlTemplate TargetType="{x:Type Button}" >
 
                         <Grid >
-                            <Border  Name="Border" Background="{DynamicResource GradButt3}" BorderBrush="Black" BorderThickness="2"  CornerRadius="7" >
+                            <Border  Name="Border" Background="{DynamicResource GradButt3}"   >
 
 
 
@@ -448,11 +449,11 @@
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="true">
                                 <Setter TargetName="Border"  Property="Background" Value="LightGreen"></Setter>
-                                <Setter TargetName="Border"  Property="BorderBrush" Value="Sienna"></Setter>
+                               
                             </Trigger>
                             <Trigger Property="IsPressed" Value="true">
-                                <Setter TargetName="Border"  Property="Background" Value="Black"></Setter>
-                                <Setter TargetName="Border"  Property="BorderBrush" Value="DarkCyan"></Setter>
+                                <Setter TargetName="Border"  Property="Background" Value="White"></Setter>
+                                
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -466,7 +467,7 @@
                     <ControlTemplate TargetType="{x:Type  ToggleButton}" >
 
                         <Grid >
-                            <Border  Name="Border" Background="{DynamicResource GradButt3}" BorderBrush="Black" BorderThickness="2"  >
+                            <Border  Name="Border" Background="White"   >
 
 
 
