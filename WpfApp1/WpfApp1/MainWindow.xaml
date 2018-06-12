@@ -48,7 +48,7 @@
                 <ImageBrush/>
             </ListView.Background>
 
-
+  
         </ListView>
         <Controls:ProgressRing Grid.Row="3" IsActive="False"></Controls:ProgressRing>
     </Grid>
