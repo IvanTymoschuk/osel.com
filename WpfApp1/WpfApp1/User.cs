@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Xml.Serialization;
 using System.ComponentModel;
-using System.Windows;
-
 namespace WpfApp1
 {
     [Serializable]
-    public class User : IDataErrorInfo
+    public class User: IDataErrorInfo
     {
 
         public string login { get; set; }
@@ -58,11 +56,10 @@ namespace WpfApp1
                         }
                         break;
                 }
-                return error;
-
-
+                return m;
             }
-        } 
+        }
+
         private string random_login()
         {
             string log;

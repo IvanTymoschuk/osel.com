@@ -29,7 +29,9 @@
                 <Border.Effect>
                     <DropShadowEffect />
                 </Border.Effect>
-                <Grid>
+
+                <Border Margin="2" BorderThickness="2" Background="{StaticResource BackItem}" Width="495">
+                    <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
@@ -46,13 +48,29 @@
                     <TextBlock Grid.Column="0" Grid.Row="2" Margin="3" HorizontalAlignment="Left"  FontSize="14" Text="{Binding Path=Date}"/>
                     <TextBlock Grid.Column="1" Grid.Row="2" Margin="3" HorizontalAlignment="Right"  FontSize="15" Text="{Binding Path=Type}"/>
                 </Grid>
+                    </Border>
             </Border>
 
 
         </DataTemplate>
+ 
+        
         <Style  x:Key="PanelStyle" TargetType="ListView">
             <Setter Property="ItemTemplate" Value="{StaticResource BookTemplate}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListBox}">
+                        <ScrollViewer x:Name="ScrollViewer">
+                            <ItemsPresenter/>
+                        </ScrollViewer>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
+        
+        
+        
+        
         <!--_______________________________________________________________________-->
         <LinearGradientBrush x:Key="GradButt" StartPoint="0,0" EndPoint="1,0" Opacity="0.6">
             <GradientStop Color="DarkRed" Offset="0"></GradientStop>
@@ -98,9 +116,33 @@
 
 
 
+        <Style x:Key="MainWindowStyle" TargetType="Window">
+            <Setter Property="WindowStyle" Value="None"></Setter>
+            <Setter Property="AllowsTransparency" Value="True"></Setter>
+            <EventSetter Event="MouseDown" Handler="Window_MouseDown"></EventSetter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Window">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="100"/>
+                                <RowDefinition/>
+
+                            </Grid.RowDefinitions>
+                            <Border Grid.Row="1" Background="{StaticResource MainBack}" CornerRadius="20" BorderThickness="5" BorderBrush="Black">
+
+                                <ContentPresenter/>
+
+                            </Border>
+                        </Grid>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
 
-       
+
 
         <!--_______________________________________________________________________-->
 
@@ -364,6 +406,44 @@
                             <Trigger Property="IsPressed" Value="true">
                                 <Setter TargetName="Border"  Property="Background" Value="Black"></Setter>
                                 <Setter TargetName="Border"  Property="BorderBrush" Value="DarkCyan"></Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+
+        <RadialGradientBrush x:Key="GradCloseColor"   >
+            <GradientStop Color="White" Offset="0.6"></GradientStop>
+            <GradientStop Color="Red" Offset="0.4"></GradientStop>
+        </RadialGradientBrush>
+        <Style x:Key="CloseBut" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}" >
+
+                        <Grid >
+                           
+                           <Path
+                            Name="Crest"
+                          Stroke="Red"
+                                StrokeThickness="8"
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                          Data="M 1 1 L 16 16 M 16 1 L 1 16 "/>
+
+                        </Grid>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                
+                                <Setter TargetName="Crest" Property="Stroke" Value="{StaticResource GradCloseColor}"></Setter>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter TargetName="Crest" Property="Stroke" Value="White"></Setter>
+                                <Setter TargetName="Crest" Property="StrokeThickness" Value="8"></Setter>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>

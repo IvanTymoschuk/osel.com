@@ -80,5 +80,13 @@ namespace WpfApp1
                 return;
             }
         }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = false;
+            this.Close();
+            //MainWindow m = new MainWindow();
+            //m.Close();
+           
+        }
     }
 }
