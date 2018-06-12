@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:WpfApp1"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         mc:Ignorable="d"
-        Title="Osel.com" Height="450" Width="800" Style="{StaticResource MainWindowStyle}" >
+        Title="Osel.com" Height="729" Width="1154" Style="{StaticResource MainWindowStyle}" >
     <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
@@ -16,24 +16,29 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <Button Width="30" Height="30" HorizontalAlignment="Right" Margin="0,-39,12,49" Click="Button_Click" Style="{StaticResource CloseBut}"></Button>
-        
+
         <TextBlock Grid.RowSpan="2" Name="name" Style="{StaticResource MainName}" Text="Osёl.com" HorizontalAlignment="Center">
-                <TextBlock.Effect>
+            <TextBlock.Effect>
                 <DropShadowEffect
                   ShadowDepth="4"
                   Direction="330"
                   Color="Black"
                   Opacity="0.5"
                  BlurRadius="4"/>
-              </TextBlock.Effect>
-            </TextBlock>
-            
-            
+            </TextBlock.Effect>
+        </TextBlock>
+
+
         <Grid Grid.Row="2" >
             <StackPanel Orientation="Horizontal">
-                <ComboBox Name="ModeSort" Text="Sorting" HorizontalAlignment="Left" Width="150" SelectionChanged="ModeSort_SelectionChanged"></ComboBox>
-                <ToggleButton Width="35" Name="TileItem" Content="Tile"  Click="TileItem_Click"></ToggleButton>
-                <ToggleButton Width="35" Name="ListItem" Content="List" Click="ListItem_Click"></ToggleButton>
+                <ComboBox  Name="ModeSort" Text="Sorting" HorizontalAlignment="Left" Width="150" SelectionChanged="ModeSort_SelectionChanged"></ComboBox>
+                <Border BorderThickness="2" BorderBrush="#FF8A71FB" >
+                    <StackPanel Orientation="Horizontal">
+                        <ToggleButton Width="50" Name="TileItem" Content="Tile"  Click="TileItem_Click"></ToggleButton>
+
+                        <ToggleButton Width="50" Name="ListItem" Content="List" Click="ListItem_Click"></ToggleButton>
+                    </StackPanel>
+                </Border>
                 <Button Name="MyRoom" Content="Add" HorizontalAlignment="Right" Width="150" Click="MyRoom_Click" ></Button>
             </StackPanel>
         </Grid>
@@ -46,9 +51,9 @@
                 <ImageBrush/>
             </ListView.Background>
 
-  
+
         </ListView>
-      
+
     </Grid>
 
 </Window>

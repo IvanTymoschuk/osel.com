@@ -7,7 +7,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Registration" Height="204.396" Width="380"  Style="{StaticResource WindowStyle}">
+        Title="Registration" Height="197.765" Width="546"  Style="{StaticResource WindowStyle}">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -17,19 +17,19 @@
             <RowDefinition Height="22.39"></RowDefinition>
             <RowDefinition Height="12.61"/>
             <RowDefinition Height="35"></RowDefinition>
-            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="55"></RowDefinition>
         </Grid.RowDefinitions>
         <TextBlock Text="LOGIN: " Grid.Row="1" VerticalAlignment="Center" Width="70" Margin="0,10,0,9" HorizontalAlignment="Left" TextAlignment="Right"></TextBlock>
-        <TextBlock Text="City: " Grid.Row="2" VerticalAlignment="Center" Width="70" Margin="0,10,0,9" HorizontalAlignment="Left" TextAlignment="Right"></TextBlock>
+        <TextBlock Text="City: " Grid.Row="2" VerticalAlignment="Center" Width="54" Margin="0,1,0,0" HorizontalAlignment="Left" TextAlignment="Right"></TextBlock>
         <TextBlock Text="Phone: " Grid.Row="3" VerticalAlignment="Center" Width="70" Margin="0,10,0,9" HorizontalAlignment="Left" TextAlignment="Right" Grid.RowSpan="2"></TextBlock>
-        <TextBlock Text="PASSWORD: " Grid.Row="5" VerticalAlignment="Center"  Width="70" Margin="0,10,0,9" HorizontalAlignment="Left" TextAlignment="Right"></TextBlock>
-        <TextBox Name="Login" Style="{DynamicResource TB}" Grid.Row="1" HorizontalAlignment="Right" Width="270" Margin="0,5,5,5" TextAlignment="Left" Text="{Binding Path=login,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}"> 
-           
+        <TextBlock Text="PASSWORD: " Grid.Row="5" VerticalAlignment="Center"  Width="132" Margin="0,1,0,0" HorizontalAlignment="Left" TextAlignment="Right"></TextBlock>
+        <TextBox Name="Login" Style="{DynamicResource TB}" Grid.Row="1" HorizontalAlignment="Right" Width="370" Margin="0,5,5,5" TextAlignment="Left" Text="{Binding Path=login,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}">
+
         </TextBox>
-        <TextBox Name="Phone" Grid.Row="3" HorizontalAlignment="Right" Width="270" Margin="0,5,5,5" TextAlignment="Left" MaxLength="12" Grid.RowSpan="2" Text="{Binding Path=phone,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}" Style="{DynamicResource TB}"></TextBox>
-        <TextBox Name="City" Grid.Row="2" HorizontalAlignment="Right" Width="270" Margin="0,5,5,5" Text="{Binding Path=city,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}"></TextBox>
-        <PasswordBox Name="Pass"  Grid.Row="5" HorizontalAlignment="Right" Margin="0,5,5,5" Width="270" PasswordChanged="Pass_PasswordChanged"></PasswordBox>
-        <Button IsEnabled="{Binding Path=IsValid}" Grid.Row="6" Name="reg_btn" Width="180" HorizontalAlignment="Left" Content="Reg" Click="reg_btn_Click"></Button>
-        <Button Grid.Row="6" Width="170" Name="close_btn" HorizontalAlignment="Right" Content="Cancel" Click="close_btn_Click"></Button>
+        <TextBox Name="Phone" Grid.Row="3" HorizontalAlignment="Right" Width="370" Margin="0,5,5,5" TextAlignment="Left" MaxLength="12" Grid.RowSpan="2" Text="{Binding Path=phone,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}" Style="{DynamicResource TB}"></TextBox>
+        <TextBox Name="City" Grid.Row="2" HorizontalAlignment="Right" Width="370" Margin="0,5,5,5" Text="{Binding Path=city,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}"></TextBox>
+        <PasswordBox Name="Pass"  Grid.Row="5" HorizontalAlignment="Right" Margin="0,5,5,5" Width="370" PasswordChanged="Pass_PasswordChanged"></PasswordBox>
+        <Button VerticalAlignment="Center" IsEnabled="{Binding Path=IsValid}" Grid.Row="6" Name="reg_btn" Width="180" HorizontalAlignment="Left" Content="Reg" Click="reg_btn_Click"></Button>
+        <Button VerticalAlignment="Center" Grid.Row="6" Width="170" Name="close_btn" HorizontalAlignment="Right" Content="Cancel" Click="close_btn_Click"></Button>
     </Grid>
 </Window>

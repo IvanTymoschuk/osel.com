@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Add" Height="241.305" Width="376.087"  Style="{StaticResource WindowStyle}">
+        Title="Add" Height="241.305" Width="424.206"  Style="{StaticResource WindowStyle}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="35"></RowDefinition>
@@ -16,7 +16,7 @@
             <RowDefinition Height="25"></RowDefinition>
         </Grid.RowDefinitions>
         <TextBlock Text="Name: " VerticalAlignment="Center" Grid.Row="0" Width="70" Margin="0,0,5,0" HorizontalAlignment="Left" TextAlignment="Right"></TextBlock>
-        <TextBlock Text="Description: " VerticalAlignment="Center" Grid.Row="1" Width="70" Margin="0,0,5,0" HorizontalAlignment="Left" TextAlignment="Right"></TextBlock>
+        <TextBlock Text="Description: " VerticalAlignment="Center" Grid.Row="1" Width="122" HorizontalAlignment="Left" TextAlignment="Right"/>
         <TextBlock Text="City: " VerticalAlignment="Center" Grid.Row="2" Width="70" Margin="0,0,5,0" HorizontalAlignment="Left" TextAlignment="Right"></TextBlock>
         <TextBlock Text="Price: " VerticalAlignment="Center" Grid.Row="3" Width="70" Margin="0,0,5,0" HorizontalAlignment="Left" TextAlignment="Right"></TextBlock>
         <TextBlock Text="Type: " VerticalAlignment="Center" Grid.Row="4" Width="70" Margin="0,0,5,0" HorizontalAlignment="Left" TextAlignment="Right"></TextBlock>

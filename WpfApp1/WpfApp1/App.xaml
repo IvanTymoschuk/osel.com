@@ -23,6 +23,12 @@
             <Setter Property="FontSize" Value="60"></Setter>
         </Style>
 
+        <Style x:Key="{x:Type TextBlock}" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="White"></Setter>
+            <Setter Property="FontFamily" Value="Segoe Print"></Setter>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+            <Setter Property="FontSize" Value="20"></Setter>
+        </Style>
 
         <DataTemplate x:Key="BookTemplate"  >
        
@@ -86,15 +92,14 @@
             <GradientStop Color="Lime" Offset="0"></GradientStop>
         </LinearGradientBrush>
         <LinearGradientBrush x:Key="GradButt2" StartPoint="0,0" EndPoint="1,0" Opacity="0.4">
-            <GradientStop Color="Cyan" Offset="1"></GradientStop>
-            <GradientStop Color="White" Offset="0"></GradientStop>
+            <GradientStop Color="#FF1811A8" Offset="1"></GradientStop>
+            <GradientStop Color="#FF8A71FB" Offset="0"></GradientStop>
         </LinearGradientBrush>
         <LinearGradientBrush x:Key="GradButt3" StartPoint="0,0" EndPoint="1,0" Opacity="0.6">
-            <GradientStop Color="Cyan" Offset="0"></GradientStop>
-            <GradientStop Color="White" Offset="1"></GradientStop>
+            <GradientStop Color="#FF1811A8" Offset="0"></GradientStop>
+            <GradientStop Color="#FF8A71FB" Offset="1"></GradientStop>
         </LinearGradientBrush>
-        <Color x:Key="ColorPas"  >#00FFFF</Color>
-        <Color x:Key="ColorPas2">#00FFFF</Color>
+        
 
         <!--_______________________________________________________________________-->
 
@@ -160,28 +165,27 @@
                 <Border
       x:Name="Border" 
       Grid.ColumnSpan="2"
-      CornerRadius="2"
+
       Background="{StaticResource GradButt2}"
       
-      BorderThickness="1" />
+      BorderThickness="0" />
                 <Border 
       Grid.Column="0"
-      CornerRadius="2,0,0,2" 
+     
       Margin="1" 
       Background="{StaticResource GradButt2}" 
-     
-      BorderThickness="0,0,1,0" />
+      />
                 <Path 
       x:Name="Arrow"
       Grid.Column="1"     
-      Fill="{StaticResource GradButt2}"
+      Fill="{StaticResource GradButt1}"
       HorizontalAlignment="Center"
       VerticalAlignment="Center"
       Data="M 0 0 L 4 4 L 8 0 Z"/>
             </Grid>
             <ControlTemplate.Triggers>
                 <Trigger Property="ToggleButton.IsMouseOver" Value="true">
-                    <Setter TargetName="Border" Property="Background" Value="{StaticResource GradButt2}" />
+                    <Setter TargetName="Border" Property="Background" Value="LightGreen" />
 
                 </Trigger>
                 <Trigger Property="ToggleButton.IsChecked" Value="true">
@@ -208,6 +212,7 @@
             <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
             <Setter Property="MinWidth" Value="120"/>
             <Setter Property="MinHeight" Value="20"/>
+            <Setter Property="FontSize" Value="20"></Setter>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="ComboBox">
@@ -300,7 +305,8 @@
           CornerRadius="2" 
           Padding="2"
           Background="{StaticResource GradButt3}"
-         
+         TextBlock.FontSize="20"
+                            TextBlock.Foreground="White"
           BorderThickness="1" >
                             <ScrollViewer Margin="0" x:Name="PART_ContentHost"/>
                             
@@ -326,7 +332,7 @@
                             <Border Grid.Column="0" Grid.ColumnSpan="3" BorderBrush="Black" BorderThickness="1" Background="{StaticResource GradButt3}">
                                 <ScrollViewer Margin="0" x:Name="PART_ContentHost"/>
                             </Border>
-                            <TextBlock Grid.Row="1" HorizontalAlignment="Right" Name="ValidationError"></TextBlock>
+                            <TextBlock FontSize="20" Grid.Row="1" HorizontalAlignment="Right" Name="ValidationError"></TextBlock>
                             <Ellipse Fill="Green" Name="ErrRect" Grid.Column="2" Height="15" Width="15"></Ellipse>
                         </Grid>
                         <ControlTemplate.Triggers>
@@ -407,14 +413,9 @@
                         <Border x:Name="Border"
                 CornerRadius="2"
                 Padding="2"
-                BorderThickness="1">
-                            <Border.Background>
-
-                                <SolidColorBrush Opacity="0.6" Color="{DynamicResource ColorPas}" />
-                            </Border.Background>
-                            <Border.BorderBrush>
-                                <SolidColorBrush Opacity="0.6" Color="{DynamicResource ColorPas}" />
-                            </Border.BorderBrush>
+                BorderThickness="1"
+                Background="{StaticResource GradButt3}">
+                            
                             <VisualStateManager.VisualStateGroups>
                                 <VisualStateGroup x:Name="CommonStates">
                                     <VisualState x:Name="Normal" />
@@ -439,7 +440,7 @@
 
 
 
-                                <ContentPresenter  HorizontalAlignment="Center"    ></ContentPresenter>
+                                <ContentPresenter   HorizontalAlignment="Center" TextBlock.FontSize="20"   ></ContentPresenter>
 
                             </Border>
 
@@ -467,11 +468,11 @@
                     <ControlTemplate TargetType="{x:Type  ToggleButton}" >
 
                         <Grid >
-                            <Border  Name="Border" Background="White"   >
+                            <Border  Name="Border" Background="#FF8A71FB"   >
 
 
 
-                                <ContentPresenter  HorizontalAlignment="Center"    ></ContentPresenter>
+                                <ContentPresenter  HorizontalAlignment="Center"  TextBlock.FontSize="20"  ></ContentPresenter>
 
                             </Border>
 
