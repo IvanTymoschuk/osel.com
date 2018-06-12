@@ -7,12 +7,31 @@ using System.IO;
 using System.Xml.Serialization;
 using System.ComponentModel;
 using System.Text.RegularExpressions;
+using System.Windows;
 
 namespace WpfApp1
 {
     [Serializable]
-    public class User: IDataErrorInfo
+    public class User: IDataErrorInfo, INotifyPropertyChanged
     {
+        private bool isValid = false;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public bool IsValid
+        {
+            get
+            {
+                return isValid;
+            }
+            set
+            {
+                isValid = value;
+                if(PropertyChanged!=null)
+                PropertyChanged(this, new PropertyChangedEventArgs("IsValid"));
+            }
+
+        }
 
         public string login { get; set; }
         public string password { get; set; }
@@ -30,13 +49,14 @@ namespace WpfApp1
                 List<User> list = new List<User>();
                string error = "";
               
-                switch (columnName)
-                {
-                    case "login":
+                IsValid = true;
+                //switch (columnName)
+                //{
+                //    case "login":
                         if (login.Contains("lox"))
                         {
                             error = "Bad login";
-                        //    MessageBox.Show("Valid");
+                            //    MessageBox.Show("Valid");
                         }
                         else
                         {
@@ -47,6 +67,7 @@ namespace WpfApp1
                                 using (FileStream fs = new FileStream("user.xml", FileMode.Open))
                                 {
                                     list = (List<User>)xmlSerializer.Deserialize(fs);
+                            MessageBox.Show(list.Count.ToString());
                                 }
                                 foreach (var el in list)
                                     if (el.login.ToLower() == this.login.ToLower())
@@ -56,20 +77,28 @@ namespace WpfApp1
                                     }
                             }
                         }
-                        break;
-                    case "password":
+                    //    break;
+                    //case "password":
                         if (password.Length < 7)
+
                             error = "Password min length 7 symvol";
-                        break;
+                 
                     //case "city":
                     //    if (Regex.IsMatch(phone, @"\W*") == false)
                     //        error = "city error";
                     //    break;
-                    case "phone":
+                  
                          if (Regex.IsMatch(phone, @"\d{12}") == false)
                             error = "Phone error";
-                        break;
-                }
+                 
+               // MessageBox.Show(error);
+                if (error!="")
+                {
+                    IsValid = false;
+                }                    
+                    
+                        
+
                 return error;
             }
         }

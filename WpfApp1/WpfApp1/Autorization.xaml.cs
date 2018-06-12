@@ -51,6 +51,7 @@ namespace WpfApp1
 
                 list.Clear();
                 ReadXML();
+
              
             }
         }
