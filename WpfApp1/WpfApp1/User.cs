@@ -50,9 +50,9 @@ namespace WpfApp1
                string error = "";
               
                 IsValid = true;
-                //switch (columnName)
-                //{
-                //    case "login":
+                switch (columnName)
+                {
+                    case "login":
                         if (login.Contains("lox"))
                         {
                             error = "Bad login";
@@ -67,7 +67,7 @@ namespace WpfApp1
                                 using (FileStream fs = new FileStream("user.xml", FileMode.Open))
                                 {
                                     list = (List<User>)xmlSerializer.Deserialize(fs);
-                            MessageBox.Show(list.Count.ToString());
+                                //    MessageBox.Show(list.Count.ToString());
                                 }
                                 foreach (var el in list)
                                     if (el.login.ToLower() == this.login.ToLower())
@@ -77,20 +77,21 @@ namespace WpfApp1
                                     }
                             }
                         }
-                    //    break;
-                    //case "password":
+                        break;
+                    case "password":
                         if (password.Length < 7)
 
                             error = "Password min length 7 symvol";
-                 
-                    //case "city":
-                    //    if (Regex.IsMatch(phone, @"\W*") == false)
-                    //        error = "city error";
-                    //    break;
-                  
-                         if (Regex.IsMatch(phone, @"\d{12}") == false)
+                        break;
+                    case "city":
+                        if (Regex.IsMatch(phone, @"\W*") == false)
+                            error = "city error";
+                        break;
+                    case "phone":
+                        if (Regex.IsMatch(phone, @"\d{12}") == false)
                             error = "Phone error";
-                 
+                        break;
+                }
                // MessageBox.Show(error);
                 if (error!="")
                 {
