@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Xml.Serialization;
 using System.ComponentModel;
+using System.Text.RegularExpressions;
+
 namespace WpfApp1
 {
     [Serializable]
@@ -54,6 +56,18 @@ namespace WpfApp1
                                     }
                             }
                         }
+                        break;
+                    case "password":
+                        if (password.Length < 7)
+                            error = "Password min length 7 symvol";
+                        break;
+                    //case "city":
+                    //    if (Regex.IsMatch(phone, @"\W*") == false)
+                    //        error = "city error";
+                    //    break;
+                    case "phone":
+                         if (Regex.IsMatch(phone, @"\d{12}") == false)
+                            error = "Phone error";
                         break;
                 }
                 return error;

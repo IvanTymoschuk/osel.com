@@ -49,19 +49,10 @@ namespace WpfApp1
         
         private void reg_btn_Click(object sender, RoutedEventArgs e)
         {
-            foreach (var el in list)
-                if (el.login == this.Login.Text)
-                {
-                    MessageBox.Show("Login exist");
-                    return;
 
-                }
-
-            if (string.IsNullOrEmpty(this.Login.Text) == true || string.IsNullOrEmpty(this.City.Text) == true || string.IsNullOrEmpty(this.Phone.Text) == true || string.IsNullOrEmpty(this.Pass.Password) == true)
-                MessageBox.Show("Please input all field");
-            else
-            if (Regex.IsMatch(this.Phone.Text, @"\d{12}") == false)
-                MessageBox.Show("Phone valid");
+            if (Pass.Password.Length < 7)
+                MessageBox.Show("Password length min 7 your password length =" + Pass.Password.Length.ToString());
+            
             else
             {
                 list.Add(new User(this.Login.Text, this.Pass.Password, this.City.Text, this.Phone.Text));
@@ -75,8 +66,8 @@ namespace WpfApp1
                 this.Close();
             }
             //380 93 33 63 521 - Osel.com
-
             return;
+
         }
 
         private void close_btn_Click(object sender, RoutedEventArgs e)
@@ -88,6 +79,11 @@ namespace WpfApp1
         {
 
           
+        }
+
+        private void Pass_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+         
         }
     }
 }

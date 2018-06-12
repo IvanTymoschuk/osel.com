@@ -285,15 +285,31 @@
             <Style.Triggers>
             </Style.Triggers>
         </Style>
-        <!--<Style x:Key="textbox" TargetType="TextBox">
-            <Style.Triggers>
-                <Trigger Property="Validation.HasError" Value="true">
-                    <Setter Property="Background" Value="red"></Setter>
-                </Trigger>
-            </Style.Triggers>
-        </Style>-->
-        <!--_______________________________________________________________________-->
         <Style x:Key="{x:Type TextBox}" TargetType="{x:Type TextBoxBase}">
+           
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBoxBase}">
+                        <Border 
+          Name="Border"
+          CornerRadius="2" 
+          Padding="2"
+          Background="{StaticResource GradButt3}"
+         
+          BorderThickness="1" >
+                            <ScrollViewer Margin="0" x:Name="PART_ContentHost"/>
+                            
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Validation.HasError" Value="true">
+                                <Setter TargetName="Border" Property="Background" Value="red"></Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!--<Style x:Key="{x:Type TextBox}" TargetType="{x:Type TextBoxBase}">
             <Setter Property="SnapsToDevicePixels" Value="True"/>
             <Setter Property="OverridesDefaultStyle" Value="True"/>
             <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
@@ -330,7 +346,7 @@
                 </Setter.Value>
             </Setter>
             
-        </Style>
+        </Style>-->
 
         <!--_______________________________________________________________________-->
         <Style x:Key="{x:Type PasswordBox}"
