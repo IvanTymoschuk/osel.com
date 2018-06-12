@@ -8,10 +8,6 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         mc:Ignorable="d"
         Title="Osel.com" Height="450" Width="800" Style="{StaticResource MainWindowStyle}" >
-    <Window.Resources>
-        <StaticResource ResourceKey="MetroStyle"></StaticResource>
-    </Window.Resources>
-    
     <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
@@ -19,7 +15,6 @@
             <RowDefinition Height="auto"/>
             <RowDefinition />
         </Grid.RowDefinitions>
-        <Controls:ToggleSwitch >Hello</Controls:ToggleSwitch>
         <Button Width="30" Height="30" HorizontalAlignment="Right" Margin="0,-39,12,49" Click="Button_Click" Style="{StaticResource CloseBut}"></Button>
         
         <TextBlock Grid.RowSpan="2" Name="name" Style="{StaticResource MainName}" Text="Osёl.com" HorizontalAlignment="Center">
@@ -34,11 +29,14 @@
             </TextBlock>
             
             
-            <Grid Grid.Row="2" >
+        <Grid Grid.Row="2" >
+            <StackPanel Orientation="Horizontal">
                 <ComboBox Name="ModeSort" Text="Sorting" HorizontalAlignment="Left" Width="150" SelectionChanged="ModeSort_SelectionChanged"></ComboBox>
+                <ToggleButton Width="35" Name="TileItem" Content="Tile"  Click="TileItem_Click"></ToggleButton>
+                <ToggleButton Width="35" Name="ListItem" Content="List" Click="ListItem_Click"></ToggleButton>
                 <Button Name="MyRoom" Content="Add" HorizontalAlignment="Right" Width="150" Click="MyRoom_Click" ></Button>
-               
-            </Grid>
+            </StackPanel>
+        </Grid>
 
 
         <ListView Grid.Row="3" Style="{StaticResource PanelStyle}" 
@@ -50,7 +48,7 @@
 
   
         </ListView>
-        <Controls:ProgressRing Grid.Row="3" IsActive="False"></Controls:ProgressRing>
+      
     </Grid>
 
 </Window>

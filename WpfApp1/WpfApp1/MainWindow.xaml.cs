@@ -131,6 +131,25 @@ namespace WpfApp1
         {
             this.Close();
         }
+
+        private void SwitchBut_IsCheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TileItem_Click(object sender, RoutedEventArgs e)
+        {
+            if (TileItem.IsChecked == true)
+                ListItem.IsChecked = false;
+        }
+
+        private void ListItem_Click(object sender, RoutedEventArgs e)
+        {
+            if (ListItem.IsChecked == true)
+                TileItem.IsChecked = false;
+
+
+        }
     }
 
 }
