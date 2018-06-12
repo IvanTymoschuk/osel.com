@@ -13,6 +13,7 @@ namespace WpfApp1
     [Serializable]
     public class User : IDataErrorInfo
     {
+
         public string login { get; set; }
         public string password { get; set; }
         public string city { get; set; }
@@ -23,9 +24,11 @@ namespace WpfApp1
 
         public string this[string columnName]
         {
+           
             get
             {
-                string error = "";
+                List<User> list = new List<User>();
+               string error = "";
               
                 switch (columnName)
                 {
@@ -33,7 +36,25 @@ namespace WpfApp1
                         if (login.Contains("lox"))
                         {
                             error = "Bad login";
-                            MessageBox.Show("Valid");
+                        //    MessageBox.Show("Valid");
+                        }
+                        else
+                        {
+                            if (File.Exists("user.xml") == true)
+                            {
+
+                                XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<User>));
+                                using (FileStream fs = new FileStream("user.xml", FileMode.Open))
+                                {
+                                    list = (List<User>)xmlSerializer.Deserialize(fs);
+                                }
+                                foreach (var el in list)
+                                    if (el.login == this.login)
+                                    {
+                                        //MessageBox.Show("Login exist");
+                                        error = "Login exist";
+                                    }
+                            }
                         }
                         break;
                 }

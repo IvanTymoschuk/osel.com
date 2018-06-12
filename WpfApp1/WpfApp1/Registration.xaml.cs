@@ -28,9 +28,10 @@ namespace WpfApp1
         public User new_user= new User();
         public Registration()
         {
+            this.DataContext = new_user;
             InitializeComponent();
             ReadXML();
-            this.DataContext = new_user;
+          
         }
 
         private void ReadXML()

@@ -115,6 +115,7 @@
       Grid.ColumnSpan="2"
       CornerRadius="2"
       Background="{StaticResource GradButt2}"
+      
       BorderThickness="1" />
                 <Border 
       Grid.Column="0"
@@ -242,9 +243,16 @@
             <Style.Triggers>
             </Style.Triggers>
         </Style>
+        <!--<Style x:Key="textbox" TargetType="TextBox">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="true">
+                    <Setter Property="Background" Value="red"></Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>-->
         <!--_______________________________________________________________________-->
-        <!--<Style x:Key="{x:Type TextBox}" TargetType="{x:Type TextBoxBase}">-->
-            <!--<Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Style x:Key="{x:Type TextBox}" TargetType="{x:Type TextBoxBase}">
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
             <Setter Property="OverridesDefaultStyle" Value="True"/>
             <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
             <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
@@ -269,16 +277,18 @@
                                 <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource GradButt3}"/>
                                 <Setter Property="Foreground" Value="{StaticResource GradButt3}"/>
                             </Trigger>
+                            <Trigger Property="Validation.HasError" Value="true">
+                                <Setter Property="Background" Value="red"></Setter>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" Value="blue"></Setter>
+                            </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-            <Style.Triggers>
-                <Trigger Property="Validation.HasError" Value="True">
-                    <Setter TargetName="Border" Property="Background" Value="Green"></Setter>
-                </Trigger>
-            </Style.Triggers>
-        </Style>-->
+            
+        </Style>
 
         <!--_______________________________________________________________________-->
         <Style x:Key="{x:Type PasswordBox}"

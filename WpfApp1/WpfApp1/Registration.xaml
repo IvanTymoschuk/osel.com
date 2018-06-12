@@ -23,14 +23,8 @@
         <TextBlock Text="City: " Grid.Row="2" VerticalAlignment="Center" Width="70" Margin="0,10,0,9" HorizontalAlignment="Left" TextAlignment="Right"></TextBlock>
         <TextBlock Text="Phone: " Grid.Row="3" VerticalAlignment="Center" Width="70" Margin="0,10,0,9" HorizontalAlignment="Left" TextAlignment="Right" Grid.RowSpan="2"></TextBlock>
         <TextBlock Text="PASSWORD: " Grid.Row="5" VerticalAlignment="Center"  Width="70" Margin="0,10,0,9" HorizontalAlignment="Left" TextAlignment="Right"></TextBlock>
-        <TextBox Name="Login" Grid.Row="1" HorizontalAlignment="Right" Width="270" Margin="0,5,5,5" TextAlignment="Left">
-            <TextBox.Text>
-                <Binding Path="login">
-                    <Binding.ValidationRules>
-                        <DataErrorValidationRule />
-                    </Binding.ValidationRules>
-                </Binding>
-            </TextBox.Text>
+        <TextBox Name="Login" Grid.Row="1" HorizontalAlignment="Right" Width="270" Margin="0,5,5,5" TextAlignment="Left" Text="{Binding Path=login,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}"> 
+           
         </TextBox>
         <TextBox Name="Phone" Grid.Row="3" HorizontalAlignment="Right" Width="270" Margin="0,5,5,5" TextAlignment="Left" MaxLength="12" Grid.RowSpan="2"></TextBox>
         <TextBox Name="City" Grid.Row="2" HorizontalAlignment="Right" Width="270" Margin="0,5,5,5"></TextBox>
