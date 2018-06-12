@@ -53,7 +53,10 @@ namespace WpfApp1
             Autorization aut = new Autorization();
             aut.ShowDialog();
             if (aut.DialogResult == false)
+            {
                 this.Close();
+                return;
+            }
             this.Title = "Osel.com CONECTED: " + aut.user_name.login;
             user = aut.user_name;
         }

@@ -53,8 +53,12 @@
 
 
         </DataTemplate>
- 
-        
+
+
+
+
+
+
         <Style  x:Key="PanelStyle" TargetType="ListView">
             <Setter Property="ItemTemplate" Value="{StaticResource BookTemplate}"/>
             <Setter Property="Template">
@@ -416,17 +420,19 @@
 
 
         <RadialGradientBrush x:Key="GradCloseColor"   >
-            <GradientStop Color="White" Offset="0.6"></GradientStop>
-            <GradientStop Color="Red" Offset="0.4"></GradientStop>
+            <GradientStop Color="White" Offset="0.9"></GradientStop>
+            <GradientStop Color="Red" Offset="0.1"></GradientStop>
         </RadialGradientBrush>
+
+
         <Style x:Key="CloseBut" TargetType="Button">
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}" >
 
                         <Grid >
-                           
-                           <Path
+
+                            <Path
                             Name="Crest"
                           Stroke="Red"
                                 StrokeThickness="8"
@@ -438,12 +444,15 @@
 
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="true">
-                                
+
                                 <Setter TargetName="Crest" Property="Stroke" Value="{StaticResource GradCloseColor}"></Setter>
+                                <Setter TargetName="Crest" Property="Cursor" Value="Hand"></Setter>
                             </Trigger>
                             <Trigger Property="IsPressed" Value="true">
+
                                 <Setter TargetName="Crest" Property="Stroke" Value="White"></Setter>
                                 <Setter TargetName="Crest" Property="StrokeThickness" Value="8"></Setter>
+
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -451,5 +460,16 @@
             </Setter>
         </Style>
 
+        <ResourceDictionary x:Key="MetroStyle">
+            <ResourceDictionary.MergedDictionaries>
+                <!-- MahApps.Metro resource dictionaries. Make sure that all file names are Case Sensitive! -->
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
+                <!-- Accent and AppTheme setting -->
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
