@@ -49,7 +49,7 @@ namespace WpfApp1
                                     list = (List<User>)xmlSerializer.Deserialize(fs);
                                 }
                                 foreach (var el in list)
-                                    if (el.login == this.login)
+                                    if (el.login.ToLower() == this.login.ToLower())
                                     {
                                         //MessageBox.Show("Login exist");
                                         error = "Login exist";
