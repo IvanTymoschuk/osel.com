@@ -20,15 +20,15 @@
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock Text="LOGIN: " Grid.Row="1" VerticalAlignment="Center" Width="70" Margin="0,10,0,9" HorizontalAlignment="Left" TextAlignment="Right"></TextBlock>
+        <TextBlock Text="LOGIN: "  Grid.Row="1" VerticalAlignment="Center" Width="70" Margin="0,10,0,9" HorizontalAlignment="Left" TextAlignment="Right"></TextBlock>
         <TextBlock Text="City: " Grid.Row="2" VerticalAlignment="Center" Width="54" Margin="0,1,0,0" HorizontalAlignment="Left" TextAlignment="Right"></TextBlock>
         <TextBlock Text="Phone: " Grid.Row="3" VerticalAlignment="Center" Width="70" Margin="0,10,0,9" HorizontalAlignment="Left" TextAlignment="Right" Grid.RowSpan="2"></TextBlock>
         <TextBlock Text="PASSWORD: " Grid.Row="5" VerticalAlignment="Center"  Width="132" Margin="0,1,0,0" HorizontalAlignment="Left" TextAlignment="Right"></TextBlock>
-        <TextBox Name="Login" Style="{DynamicResource TB}" Grid.Row="1" HorizontalAlignment="Right" Width="370" Margin="0,5,5,5" TextAlignment="Left" Text="{Binding Path=login,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}">
+        <TextBox Name="Login" TextChanged="Login_TextChanged" Style="{DynamicResource TB}" Grid.Row="1" HorizontalAlignment="Right" Width="370" Margin="0,5,5,5" TextAlignment="Left" Text="{Binding Path=login,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}">
 
         </TextBox>
-        <TextBox  Name="Phone" Grid.Row="3" HorizontalAlignment="Right" Width="370" Margin="0,5,5,5" TextAlignment="Left" MaxLength="12" Grid.RowSpan="2" Text="{Binding Path=phone,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}" Style="{DynamicResource TB}"></TextBox>
-        <TextBox Name="City" Grid.Row="2" HorizontalAlignment="Right" Width="370" Margin="0,5,5,5" Text="{Binding Path=city,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}"></TextBox>
+        <TextBox  Name="Phone" Grid.Row="3" HorizontalAlignment="Right" Width="370" Margin="0,5,5,5" TextChanged="Phone_TextChanged" TextAlignment="Left" MaxLength="12" Grid.RowSpan="2" Text="{Binding Path=phone,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}" Style="{DynamicResource TB}"></TextBox>
+        <ComboBox Name="City" Grid.Row="2" SelectionChanged="City_SelectionChanged" HorizontalAlignment="Right" Width="370" Margin="0,5,5,5"></ComboBox>
         <PasswordBox Name="Pass"  Grid.Row="5" HorizontalAlignment="Right" Margin="0,5,5,5" Width="370" PasswordChanged="Pass_PasswordChanged"></PasswordBox>
         <ProgressBar Grid.Row="6" Name="progres" ValueChanged="progres_ValueChanged"></ProgressBar>
         <Button VerticalAlignment="Center" IsEnabled="{Binding Path=IsValid}" Grid.Row="7" Name="reg_btn" Width="180" HorizontalAlignment="Left" Content="Reg" Click="reg_btn_Click"></Button>

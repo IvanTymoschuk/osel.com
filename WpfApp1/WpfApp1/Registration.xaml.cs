@@ -31,6 +31,7 @@ namespace WpfApp1
             this.DataContext = new_user;
             InitializeComponent();
             ReadXML();
+            City.Items.Add("RIVNE");
           
         }
 
@@ -53,7 +54,7 @@ namespace WpfApp1
        
             
          
-                list.Add(new User(this.Login.Text, this.Pass.Password, this.City.Text, this.Phone.Text));
+                list.Add(new User(this.Login.Text, this.Pass.Password, this.City.SelectedItem.ToString(), this.Phone.Text));
                 MessageBox.Show("Please log in");
                 this.DialogResult = true;
                 using (FileStream fs = new FileStream("user.xml", FileMode.Create))
@@ -81,28 +82,55 @@ namespace WpfApp1
         private void progres_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             if (progres.Value == 100)
-                reg_btn.IsEnabled = false;
-            else
                 reg_btn.IsEnabled = true;
-            Validation.GetHasError(Phone);
+            else
+                reg_btn.IsEnabled = false;
+        
         }
 
-        bool name = false;
+        bool pas = false;
         private void Pass_PasswordChanged(object sender, RoutedEventArgs e)
         {
             if (Pass.Password.Length<7)
             {
 
-                name = false;
+                pas = false;
                 progres.Value -= 25;
             }
             else
             {
-                if (name == false)
+                if (pas == false)
                 {
                     progres.Value += 25;
-                    name = true;
+                    pas = true;
                 }
+            }
+        }
+
+        private void Phone_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+                if (Validation.GetHasError(Phone) == false)
+                    progres.Value += 25;
+                //if (Validation.GetHasError(Phone) == true)
+                //    progres.Value -= 25;
+        }
+
+        private void Login_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            //if (Validation.GetHasError(Login) == false)
+            //    progres.Value += 25;
+           // if (Validation.GetHasError(Login) == true)
+           //     progres.Value -= 25;
+        }
+
+        bool city_cheng = false;
+        private void City_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (city_cheng == false)
+            {
+                city_cheng = true;
+                progres.Value += 25;
             }
         }
     }
