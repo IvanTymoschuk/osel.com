@@ -30,7 +30,7 @@ namespace WpfApp1
         {
             InitializeComponent();
        
-
+             
             
             ModeSort.Items.Add("Price UP");
             ModeSort.Items.Add("Price DOWN");
