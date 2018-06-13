@@ -15,7 +15,7 @@ namespace WpfApp1
     public class User: IDataErrorInfo, INotifyPropertyChanged
     {
         private bool isValid = false;
-
+        private bool[] iv = new bool[3];
         public event PropertyChangedEventHandler PropertyChanged;
 
         public bool IsValid
@@ -48,14 +48,15 @@ namespace WpfApp1
             {
                 List<User> list = new List<User>();
                string error = "";
-              
-                IsValid = true;
+
+
                 switch (columnName)
                 {
                     case "login":
                         if (login.Contains("lox"))
                         {
                             error = "Bad login";
+
                             //    MessageBox.Show("Valid");
                         }
                         else
@@ -72,34 +73,29 @@ namespace WpfApp1
                                 foreach (var el in list)
                                     if (el.login.ToLower() == this.login.ToLower())
                                     {
+ 
                                         //MessageBox.Show("Login exist");
                                         error = "Login exist";
                                     }
                             }
                         }
                         break;
-                    case "password":
-                        if (password.Length < 7)
+                    //case "password":
+                    //    if (password.Length < 7)
 
-                            error = "Password min length 7 symvol";
-                        break;
-                    case "city":
-                        if (Regex.IsMatch(phone, @"\W*") == false)
-                            error = "city error";
-                        break;
+                    //        error = "Password min length 7 symvol";
+                    //    break;
+                    //case "city":
+                    //    if (Regex.IsMatch(phone, @"\W*") == false)
+                    //        error = "city error";
+                    //    break;
                     case "phone":
                         if (Regex.IsMatch(phone, @"\d{12}") == false)
                             error = "Phone error";
+
                         break;
                 }
-               // MessageBox.Show(error);
-                if (error!="")
-                {
-                    IsValid = false;
-                }                    
-                    
-                        
-
+                // MessageBox.Show(error);
                 return error;
             }
         }

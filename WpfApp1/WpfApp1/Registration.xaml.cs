@@ -50,11 +50,9 @@ namespace WpfApp1
         private void reg_btn_Click(object sender, RoutedEventArgs e)
         {
 
-            if (Pass.Password.Length < 7)
-                MessageBox.Show("Password length min 7 your password length =" + Pass.Password.Length.ToString());
+       
             
-            else
-            {
+         
                 list.Add(new User(this.Login.Text, this.Pass.Password, this.City.Text, this.Phone.Text));
                 MessageBox.Show("Please log in");
                 this.DialogResult = true;
@@ -64,9 +62,7 @@ namespace WpfApp1
                     xmlSerializer.Serialize(fs, list);
                 }
                 this.Close();
-            }
-            //380 93 33 63 521 - Osel.com
-            return;
+
 
         }
 
@@ -81,9 +77,21 @@ namespace WpfApp1
           
         }
 
+        bool pass_valid = false;
         private void Pass_PasswordChanged(object sender, RoutedEventArgs e)
         {
-         
+            if (progres.Value > 10)
+                progres.Value -= 25;
+        
+            if (Pass.Password.Length >= 7)
+                pass_valid = true;
+            else
+                pass_valid = false;
+
+            if (pass_valid == true)
+                progres.Value += 25;
+            else
+                progres.Value -= 25;
         }
     }
 }
