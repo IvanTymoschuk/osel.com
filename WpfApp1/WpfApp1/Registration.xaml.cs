@@ -77,21 +77,33 @@ namespace WpfApp1
           
         }
 
-        bool pass_valid = false;
+    
+        private void progres_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            if (progres.Value == 100)
+                reg_btn.IsEnabled = false;
+            else
+                reg_btn.IsEnabled = true;
+            Validation.GetHasError(Phone);
+        }
+
+        bool name = false;
         private void Pass_PasswordChanged(object sender, RoutedEventArgs e)
         {
-            if (progres.Value > 10)
-                progres.Value -= 25;
-        
-            if (Pass.Password.Length >= 7)
-                pass_valid = true;
-            else
-                pass_valid = false;
+            if (Pass.Password.Length<7)
+            {
 
-            if (pass_valid == true)
-                progres.Value += 25;
-            else
+                name = false;
                 progres.Value -= 25;
+            }
+            else
+            {
+                if (name == false)
+                {
+                    progres.Value += 25;
+                    name = true;
+                }
+            }
         }
     }
 }
