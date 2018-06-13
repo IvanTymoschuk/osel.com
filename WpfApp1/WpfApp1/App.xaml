@@ -4,13 +4,13 @@
              xmlns:local="clr-namespace:WpfApp1"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <LinearGradientBrush x:Key="BackItem" StartPoint="0,0" EndPoint="1,0">
+        <LinearGradientBrush x:Key="BackItem" StartPoint="0,0" EndPoint="1,0" Opacity="0.6">
             <GradientStop Color="#FF3E3EF1" Offset="0.1"></GradientStop>
             <GradientStop Color="#FF251044" Offset="0.9"></GradientStop>
           
         </LinearGradientBrush>
 
-        <LinearGradientBrush x:Key="MainBack" StartPoint="0,0" EndPoint="0,1">
+        <LinearGradientBrush x:Key="MainBack" StartPoint="0,0" EndPoint="0,1" >
             <GradientStop Color="#FFB6BDFF" Offset="0.1"></GradientStop>
             <GradientStop Color="#FFFFCEC6" Offset="0.9"></GradientStop>
         </LinearGradientBrush>
@@ -69,7 +69,7 @@
                     <DropShadowEffect />
                 </Border.Effect>
 
-                <Border Margin="2" BorderThickness="2" Background="{StaticResource BackItem}" Width="295">
+                <Border Margin="2" BorderThickness="2" BorderBrush="White" CornerRadius="5" Background="{StaticResource BackItem}" Width="295">
                     <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition></RowDefinition>
@@ -80,13 +80,13 @@
                         <ColumnDefinition Width="2*"></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <TextBlock  HorizontalAlignment="Left" FontSize="30" Text="{Binding Path=Name}"/>
-                    <TextBlock Grid.Column="1" Grid.Row="0" Margin="3" HorizontalAlignment="Right"  FontSize="35" Text="{Binding Path=Price}"/>
-                    <TextBlock Grid.Column="0" Grid.Row="1" Margin="3" HorizontalAlignment="Left"  FontSize="20" Text="{Binding Path=Descript}"/>
-                    <TextBlock Grid.Column="1" Grid.Row="1" Margin="3" HorizontalAlignment="Right"  FontSize="20" Text="{Binding Path=City}"/>
-                    <TextBlock Grid.Column="0" Grid.Row="2" Margin="3" HorizontalAlignment="Left"  FontSize="14" Text="{Binding Path=Date}"/>
-                    <TextBlock Grid.Column="1" Grid.Row="2" Margin="3" HorizontalAlignment="Right"  FontSize="15" Text="{Binding Path=Type}"/>
-                </Grid>
+                    <TextBlock Padding="3" HorizontalAlignment="Left" FontSize="30" Text="{Binding Path=Name}"/>
+                    <TextBlock Grid.Column="1" Grid.Row="0" Padding="3" Margin="3" HorizontalAlignment="Right"  FontSize="35" Text="{Binding Path=Price}"/>
+                    <TextBlock Grid.Column="0" Grid.Row="1" Padding="3" Margin="3" HorizontalAlignment="Left"  FontSize="20" Text="{Binding Path=Descript}"/>
+                    <TextBlock Grid.Column="1" Grid.Row="1" Padding="3" Margin="3" HorizontalAlignment="Right"  FontSize="20" Text="{Binding Path=City}"/>
+                    <TextBlock Grid.Column="0" Grid.Row="2" Padding="3" Margin="3" HorizontalAlignment="Left"  FontSize="14" Text="{Binding Path=Date}"/>
+                    <TextBlock Grid.Column="1" Grid.Row="2" Padding="3" Margin="3" HorizontalAlignment="Right"  FontSize="15" Text="{Binding Path=Type}"/>
+                    </Grid>
                     </Border>
             </Border>
 
@@ -96,8 +96,9 @@
 
         <ItemsPanelTemplate x:Key="ItemsTempTile">
             <WrapPanel>
-                
-            </WrapPanel>            
+               
+            </WrapPanel>
+           
         </ItemsPanelTemplate>
 
         <ItemsPanelTemplate x:Key="ItemsTempList">

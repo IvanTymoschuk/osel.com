@@ -31,7 +31,8 @@ namespace WpfApp1
             this.DataContext = new_user;
             InitializeComponent();
             ReadXML();
-            City.Items.Add("RIVNE");
+            Cities cities = new Cities();
+            City.ItemsSource = cities.getCities();
           
         }
 

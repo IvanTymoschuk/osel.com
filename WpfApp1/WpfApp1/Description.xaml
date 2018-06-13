@@ -12,8 +12,8 @@
             <RowDefinition></RowDefinition>
             <RowDefinition Height="0.5*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Button  Margin="5" Name="BackBut" Click="BackBut_Click" Content="Back" HorizontalAlignment="Left" Width="45"></Button>
-     
+        <Button  Margin="5,5,0,5" Name="BackBut" Click="BackBut_Click" Content="Back" HorizontalAlignment="Left" Width="88"></Button>
+
         <Grid Margin="25" Grid.Row="1" Background="{StaticResource BackItem}" Name="grid">
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
@@ -25,7 +25,7 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-                
+
             <TextBlock  HorizontalAlignment="Left" FontSize="30" Text="{Binding Path=Name}"/>
             <TextBlock Grid.Column="1" Grid.Row="0" Margin="3" HorizontalAlignment="Right"   FontSize="35" Text="{Binding Path=Price,StringFormat={}{0:c} }"/>
             <TextBlock Grid.Column="0" Grid.Row="1" Margin="3" HorizontalAlignment="Left"  FontSize="20" Text="{Binding Path=Descript}"/>
@@ -36,7 +36,7 @@
             <TextBlock Grid.Column="1" Grid.Row="3" Margin="3" HorizontalAlignment="Right"  FontSize="15" Text="{Binding Path=user.phone}"/>
 
         </Grid>
-  
+
 
     </Grid>
 </Window>
