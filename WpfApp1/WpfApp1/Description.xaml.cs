@@ -19,9 +19,9 @@ namespace WpfApp1
     /// </summary>
     public partial class Description : Window
     {
-        public Description()
+        public Description(Advertisment advertisment)
         {
-            Advertisment advertisment = new Advertisment("Moloko", 20, "Moloko ot korovi", "Drink", "Selo", DateTime.Now, new User() { login = "vasyan"});
+           
             InitializeComponent();
             
             grid.DataContext = advertisment;

@@ -15,6 +15,39 @@
             <GradientStop Color="#FFFFCEC6" Offset="0.9"></GradientStop>
         </LinearGradientBrush>
 
+
+
+
+        <!--_______________________________________________________________________-->
+        <LinearGradientBrush x:Key="GradButt" StartPoint="0,0" EndPoint="1,0" Opacity="0.6">
+            <GradientStop Color="DarkRed" Offset="0"></GradientStop>
+            <GradientStop Color="Lime" Offset="1"></GradientStop>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="GradButt1" StartPoint="0,0" EndPoint="1,0" Opacity="0.6">
+            <GradientStop Color="DarkRed" Offset="1"></GradientStop>
+            <GradientStop Color="Lime" Offset="0"></GradientStop>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="GradButt2" StartPoint="0,0" EndPoint="1,0" Opacity="0.4">
+            <GradientStop Color="#FF1811A8" Offset="1"></GradientStop>
+            <GradientStop Color="#FF8A71FB" Offset="0"></GradientStop>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="GradButt3" StartPoint="0,0" EndPoint="1,0" Opacity="0.6">
+            <GradientStop Color="#FF1811A8" Offset="0"></GradientStop>
+            <GradientStop Color="#FF8A71FB" Offset="1"></GradientStop>
+        </LinearGradientBrush>
+
+
+        <LinearGradientBrush x:Key="ProgressGrad" StartPoint="0,0" EndPoint="1,1" Opacity="0.6">
+            <GradientStop Color="#FF6FF36F" Offset="0"></GradientStop>
+            <GradientStop Color="#FFECECEC" Offset="1"></GradientStop>
+        </LinearGradientBrush>
+
+
+        <!--_______________________________________________________________________-->
+
+
+
+
         <Style TargetType="TextBlock" x:Key="MainName">
             <Setter Property="Foreground" Value="White"></Setter>
             <Setter Property="FontFamily" Value="Segoe Print"></Setter>
@@ -78,37 +111,43 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ListBox}">
+                        
                         <ScrollViewer x:Name="ScrollViewer">
                             <ItemsPresenter/>
                         </ScrollViewer>
+                     
+                 
+                    </ControlTemplate>
+                    
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="{x:Type ProgressBar}"
+             TargetType="{x:Type ProgressBar}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ProgressBar}">
+                        <Grid MinHeight="14" MinWidth="200">
+                            <Border 
+                            Name="PART_Track" 
+                            CornerRadius="2" 
+                            Background="{StaticResource GradButt3}"
+                           
+                            BorderThickness="1" />
+                            <Border 
+                            Name="PART_Indicator" 
+             
+                            Background="{StaticResource ProgressGrad}" 
+                    
+                            HorizontalAlignment="Left" />
+                        </Grid>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
-        
-        
-        
-        
-        <!--_______________________________________________________________________-->
-        <LinearGradientBrush x:Key="GradButt" StartPoint="0,0" EndPoint="1,0" Opacity="0.6">
-            <GradientStop Color="DarkRed" Offset="0"></GradientStop>
-            <GradientStop Color="Lime" Offset="1"></GradientStop>
-        </LinearGradientBrush>
-        <LinearGradientBrush x:Key="GradButt1" StartPoint="0,0" EndPoint="1,0" Opacity="0.6">
-            <GradientStop Color="DarkRed" Offset="1"></GradientStop>
-            <GradientStop Color="Lime" Offset="0"></GradientStop>
-        </LinearGradientBrush>
-        <LinearGradientBrush x:Key="GradButt2" StartPoint="0,0" EndPoint="1,0" Opacity="0.4">
-            <GradientStop Color="#FF1811A8" Offset="1"></GradientStop>
-            <GradientStop Color="#FF8A71FB" Offset="0"></GradientStop>
-        </LinearGradientBrush>
-        <LinearGradientBrush x:Key="GradButt3" StartPoint="0,0" EndPoint="1,0" Opacity="0.6">
-            <GradientStop Color="#FF1811A8" Offset="0"></GradientStop>
-            <GradientStop Color="#FF8A71FB" Offset="1"></GradientStop>
-        </LinearGradientBrush>
-        
 
-        <!--_______________________________________________________________________-->
+
 
 
 

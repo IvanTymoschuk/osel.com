@@ -122,7 +122,7 @@ namespace WpfApp1
 
         private void View_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            Description description = new Description();
+            Description description = new Description(adverts[View.SelectedIndex]);
             description.Show();
         }
 
