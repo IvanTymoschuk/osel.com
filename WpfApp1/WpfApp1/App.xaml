@@ -5,10 +5,9 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <LinearGradientBrush x:Key="BackItem" StartPoint="0,0" EndPoint="1,0">
-            <GradientStop Color="#FFCEF9F3" Offset="0.1"></GradientStop>
-            <GradientStop Color="#FFECF9CA" Offset="0.3"></GradientStop>
-            <GradientStop Color="#FFF5BCBC" Offset="0.6"></GradientStop>
-            <GradientStop Color="#FFF1DFFB" Offset="0.9"></GradientStop>
+            <GradientStop Color="#FF3E3EF1" Offset="0.1"></GradientStop>
+            <GradientStop Color="#FF251044" Offset="0.9"></GradientStop>
+          
         </LinearGradientBrush>
 
         <LinearGradientBrush x:Key="MainBack" StartPoint="0,0" EndPoint="0,1">
@@ -32,12 +31,12 @@
 
         <DataTemplate x:Key="BookTemplate"  >
        
-            <Border Margin="2" BorderThickness="0" Background="{StaticResource BackItem}" Width="100">
+            <Border Margin="2" BorderThickness="0" Background="{StaticResource BackItem}" Width="300">
                 <Border.Effect>
                     <DropShadowEffect />
                 </Border.Effect>
 
-                <Border Margin="2" BorderThickness="2" Background="{StaticResource BackItem}" Width="95">
+                <Border Margin="2" BorderThickness="2" Background="{StaticResource BackItem}" Width="295">
                     <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition></RowDefinition>
@@ -62,9 +61,17 @@
         </DataTemplate>
 
 
+        <ItemsPanelTemplate x:Key="ItemsTempTile">
+            <WrapPanel>
+                
+            </WrapPanel>            
+        </ItemsPanelTemplate>
 
+        <ItemsPanelTemplate x:Key="ItemsTempList">
+            <StackPanel>
 
-
+            </StackPanel>
+        </ItemsPanelTemplate>
 
         <Style  x:Key="PanelStyle" TargetType="ListView">
             <Setter Property="ItemTemplate" Value="{StaticResource BookTemplate}"/>

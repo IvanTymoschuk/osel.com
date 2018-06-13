@@ -31,14 +31,14 @@ namespace WpfApp1
             InitializeComponent();
        
 
-
+            
             ModeSort.Items.Add("Price UP");
             ModeSort.Items.Add("Price DOWN");
             ModeSort.Items.Add("Type");
             ModeSort.Items.Add("Name");
             ModeSort.Items.Add("City");
             ModeSort.Items.Add("Date");
-
+            ListItem.IsChecked = true;
 
             ReadXML();
             View.ItemsSource = adverts;
@@ -141,12 +141,15 @@ namespace WpfApp1
         {
             if (TileItem.IsChecked == true)
                 ListItem.IsChecked = false;
+
+            View.ItemsPanel = Application.Current.TryFindResource("ItemsTempTile") as ItemsPanelTemplate;
         }
 
         private void ListItem_Click(object sender, RoutedEventArgs e)
         {
             if (ListItem.IsChecked == true)
                 TileItem.IsChecked = false;
+            View.ItemsPanel = Application.Current.TryFindResource("ItemsTempList") as ItemsPanelTemplate;
 
 
         }
