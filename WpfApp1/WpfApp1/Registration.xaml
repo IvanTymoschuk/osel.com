@@ -7,31 +7,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Registration" Height="320.765" Width="546"  Style="{StaticResource WindowStyle}">
+        Title="Registration" Height="320.765" Width="546" Style="{StaticResource WindowStyle}">
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition Height="50.39"></RowDefinition>
-            <RowDefinition Height="12.61"/>
-            <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50.39" />
+            <RowDefinition Height="12.61" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
         </Grid.RowDefinitions>
-        <TextBlock Text="LOGIN: "  Grid.Row="1" VerticalAlignment="Center" Width="70" Margin="0,10,0,9" HorizontalAlignment="Left" TextAlignment="Right"></TextBlock>
-        <TextBlock Text="City: " Grid.Row="2" VerticalAlignment="Center" Width="54" Margin="0,1,0,0" HorizontalAlignment="Left" TextAlignment="Right"></TextBlock>
-        <TextBlock Text="Phone: " Grid.Row="3" VerticalAlignment="Center" Width="70" Margin="0,10,0,9" HorizontalAlignment="Left" TextAlignment="Right" Grid.RowSpan="2"></TextBlock>
-        <TextBlock Text="PASSWORD: " Grid.Row="5" VerticalAlignment="Center"  Width="132" Margin="0,1,0,0" HorizontalAlignment="Left" TextAlignment="Right"></TextBlock>
-        <TextBox Name="Login" TextChanged="Login_TextChanged" Style="{DynamicResource TB}" Grid.Row="1" HorizontalAlignment="Right" Width="370" Margin="0,5,5,5" TextAlignment="Left" Text="{Binding Path=login,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}">
-
-        </TextBox>
-        <TextBox  Name="Phone" Grid.Row="3" HorizontalAlignment="Right" Width="370" Margin="0,5,5,5" TextChanged="Phone_TextChanged" TextAlignment="Left" MaxLength="12" Grid.RowSpan="2" Text="{Binding Path=phone,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}" Style="{DynamicResource TB}"></TextBox>
-        <ComboBox Name="City" Grid.Row="2" SelectionChanged="City_SelectionChanged" HorizontalAlignment="Right" Width="370" Margin="0,10,5,10"></ComboBox>
-        <PasswordBox Name="Pass"  Grid.Row="5" HorizontalAlignment="Right" Margin="0,5,5,5" Width="370" PasswordChanged="Pass_PasswordChanged"></PasswordBox>
-        <ProgressBar Grid.Row="6" Name="progres" ValueChanged="progres_ValueChanged"></ProgressBar>
-        <Button VerticalAlignment="Center" IsEnabled="{Binding Path=IsValid}" Grid.Row="7" Name="reg_btn" Width="180" HorizontalAlignment="Left" Content="Reg" Click="reg_btn_Click"></Button>
-        <Button VerticalAlignment="Center" Grid.Row="7" Width="170" Name="close_btn" HorizontalAlignment="Right" Content="Cancel" Click="close_btn_Click"></Button>
+        <TextBlock Text="LOGIN: " Grid.Row="1" VerticalAlignment="Center" Width="70" Margin="0,10,0,9"
+                   HorizontalAlignment="Left" TextAlignment="Right" />
+        <TextBlock Text="City: " Grid.Row="2" VerticalAlignment="Center" Width="54" Margin="0,1,0,0"
+                   HorizontalAlignment="Left" TextAlignment="Right" />
+        <TextBlock Text="Phone: " Grid.Row="3" VerticalAlignment="Center" Width="70" Margin="0,10,0,9"
+                   HorizontalAlignment="Left" TextAlignment="Right" Grid.RowSpan="2" />
+        <TextBlock Text="PASSWORD: " Grid.Row="5" VerticalAlignment="Center" Width="132" Margin="0,1,0,0"
+                   HorizontalAlignment="Left" TextAlignment="Right" />
+        <TextBox Name="Login" TextChanged="Login_TextChanged" Style="{DynamicResource TB}" Grid.Row="1"
+                 HorizontalAlignment="Right" Width="370" Margin="0,5,5,5" TextAlignment="Left"
+                 Text="{Binding Path=login,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}" />
+        <TextBox Name="Phone" Grid.Row="3" HorizontalAlignment="Right" Width="370" Margin="0,5,5,5"
+                 TextChanged="Phone_TextChanged" TextAlignment="Left" MaxLength="12" Grid.RowSpan="2"
+                 Text="{Binding Path=phone,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}"
+                 Style="{DynamicResource TB}" />
+        <ComboBox Name="City" Grid.Row="2" SelectionChanged="City_SelectionChanged" HorizontalAlignment="Right"
+                  Width="370" Margin="0,10,5,10" />
+        <PasswordBox Name="Pass" Grid.Row="5" HorizontalAlignment="Right" Margin="0,5,5,5" Width="370"
+                     PasswordChanged="Pass_PasswordChanged" />
+        <ProgressBar Grid.Row="6" Name="progres" ValueChanged="progres_ValueChanged" />
+        <Button VerticalAlignment="Center" IsEnabled="{Binding Path=IsValid}" Grid.Row="7" Name="reg_btn" Width="180"
+                HorizontalAlignment="Left" Content="Reg" Click="reg_btn_Click" />
+        <Button VerticalAlignment="Center" Grid.Row="7" Width="170" Name="close_btn" HorizontalAlignment="Right"
+                Content="Cancel" Click="close_btn_Click" />
     </Grid>
 </Window>

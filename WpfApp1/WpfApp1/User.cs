@@ -1,36 +1,45 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
-using System.Xml.Serialization;
 using System.ComponentModel;
+using System.IO;
 using System.Text.RegularExpressions;
-using System.Windows;
+using System.Xml.Serialization;
 
 namespace WpfApp1
 {
     [Serializable]
-    public class User: IDataErrorInfo, INotifyPropertyChanged
+    public class User : IDataErrorInfo, INotifyPropertyChanged
     {
-        private bool isValid = false;
+        private bool isValid;
         private bool[] iv = new bool[3];
-        public event PropertyChangedEventHandler PropertyChanged;
+
+        public User()
+        {
+            login = random_login();
+            password = "pass";
+            phone = "22221212";
+            city = "None";
+            isBanned = false;
+        }
+
+        public User(string login, string password, string city, string phone)
+        {
+            this.login = login;
+            this.password = password;
+            this.city = city;
+            this.phone = phone;
+            isBanned = false;
+        }
 
         public bool IsValid
         {
-            get
-            {
-                return isValid;
-            }
+            get => isValid;
             set
             {
                 isValid = value;
-                if(PropertyChanged!=null)
-                PropertyChanged(this, new PropertyChangedEventArgs("IsValid"));
+                if (PropertyChanged != null)
+                    PropertyChanged(this, new PropertyChangedEventArgs("IsValid"));
             }
-
         }
 
         public string login { get; set; }
@@ -43,12 +52,11 @@ namespace WpfApp1
 
         public string this[string columnName]
         {
-           
             get
             {
-                List<User> list = new List<User>();
-               string error = "";
-                
+                var list = new List<User>();
+                var error = "";
+
 
                 switch (columnName)
                 {
@@ -61,24 +69,21 @@ namespace WpfApp1
                         }
                         else
                         {
-                            if (File.Exists("user.xml") == true)
+                            if (File.Exists("user.xml"))
                             {
-
-                                XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<User>));
-                                using (FileStream fs = new FileStream("user.xml", FileMode.Open))
+                                var xmlSerializer = new XmlSerializer(typeof(List<User>));
+                                using (var fs = new FileStream("user.xml", FileMode.Open))
                                 {
-                                    list = (List<User>)xmlSerializer.Deserialize(fs);
-                                //    MessageBox.Show(list.Count.ToString());
+                                    list = (List<User>) xmlSerializer.Deserialize(fs);
+                                    //    MessageBox.Show(list.Count.ToString());
                                 }
+
                                 foreach (var el in list)
-                                    if (el.login.ToLower() == this.login.ToLower())
-                                    {
- 
-                                        //MessageBox.Show("Login exist");
+                                    if (el.login.ToLower() == login.ToLower())
                                         error = "Login exist";
-                                    }
                             }
                         }
+
                         break;
                     //case "password":
                     //    if (password.Length < 7)
@@ -95,34 +100,20 @@ namespace WpfApp1
 
                         break;
                 }
+
                 // MessageBox.Show(error);
                 return error;
             }
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
         private string random_login()
         {
             string log;
-            Random rnd = new Random();
+            var rnd = new Random();
             log = rnd.Next(999999).ToString();
             return log;
         }
-        public User()
-        {
-            this.login = random_login();
-            this.password = "pass";
-            this.phone = "22221212";
-            this.city = "None";
-            this.isBanned = false;
-        }
-        public User(string login,string password,string city,string phone)
-        {
-            this.login = login;
-            this.password = password;
-            this.city = city;
-            this.phone = phone;
-            isBanned = false;   
-        }
-
     }
 }

@@ -5,27 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Add" Height="310.305" Width="424.206"  Style="{StaticResource WindowStyle}">
+        Title="Add" Height="310.305" Width="424.206" Style="{StaticResource WindowStyle}">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition Height="35"></RowDefinition>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="35" />
         </Grid.RowDefinitions>
-        <TextBlock Text="Name: " VerticalAlignment="Center" Grid.Row="0" Width="70" Margin="0,0,5,0" HorizontalAlignment="Left" TextAlignment="Right"></TextBlock>
-        <TextBlock Text="Description: " VerticalAlignment="Center" Grid.Row="1" Width="122" HorizontalAlignment="Left" TextAlignment="Right"/>
-        <TextBlock Text="City: " VerticalAlignment="Center" Grid.Row="2" Width="70" Margin="0,0,5,0" HorizontalAlignment="Left" TextAlignment="Right"></TextBlock>
-        <TextBlock Text="Price: " VerticalAlignment="Center" Grid.Row="3" Width="70" Margin="0,0,5,0" HorizontalAlignment="Left" TextAlignment="Right"></TextBlock>
-        <TextBlock Text="Type: " VerticalAlignment="Center" Grid.Row="4" Width="70" Margin="0,0,5,0" HorizontalAlignment="Left" TextAlignment="Right"></TextBlock>
-        <TextBox Name="Name" Style="{DynamicResource TB}" Grid.Row="0" HorizontalAlignment="Right" Width="270" Margin="5" TextAlignment="Left" Text="{Binding Path=Name,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}"></TextBox>
-        <TextBox Name="Descript" Grid.Row="1" HorizontalAlignment="Right" Width="270" Margin="5" TextAlignment="Left"></TextBox>
-        <TextBox Name="Price" Grid.Row="3" HorizontalAlignment="Right" Width="270" Margin="5" TextAlignment="Left" MaxLength="12"></TextBox>
-        <ComboBox  Name="City" Grid.Row="2" HorizontalAlignment="Right" Width="270" Margin="0,5,5,10"></ComboBox>
-        <TextBox Name="Type"  Grid.Row="4" HorizontalAlignment="Right" Margin="5" Width="270"></TextBox>
-        <Button Grid.Row="5" Name="add_btn" Width="180" HorizontalAlignment="Left" VerticalAlignment="Center" Content="Reg" Click="add_btn_Click"></Button>
-        <Button Grid.Row="5" Width="170" Name="close_btn" HorizontalAlignment="Right" Content="Cancel" VerticalAlignment="Center" Click="close_btn_Click"></Button>
+        <TextBlock Text="Name: " VerticalAlignment="Center" Grid.Row="0" Width="70" Margin="0,0,5,0"
+                   HorizontalAlignment="Left" TextAlignment="Right" />
+        <TextBlock Text="Description: " VerticalAlignment="Center" Grid.Row="1" Width="122" HorizontalAlignment="Left"
+                   TextAlignment="Right" />
+        <TextBlock Text="City: " VerticalAlignment="Center" Grid.Row="2" Width="70" Margin="0,0,5,0"
+                   HorizontalAlignment="Left" TextAlignment="Right" />
+        <TextBlock Text="Price: " VerticalAlignment="Center" Grid.Row="3" Width="70" Margin="0,0,5,0"
+                   HorizontalAlignment="Left" TextAlignment="Right" />
+        <TextBlock Text="Type: " VerticalAlignment="Center" Grid.Row="4" Width="70" Margin="0,0,5,0"
+                   HorizontalAlignment="Left" TextAlignment="Right" />
+        <TextBox Name="Name" Style="{DynamicResource TB}" Grid.Row="0" HorizontalAlignment="Right" Width="270"
+                 Margin="5" TextAlignment="Left"
+                 Text="{Binding Path=Name,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}" />
+        <TextBox Name="Descript" Grid.Row="1" HorizontalAlignment="Right" Width="270" Margin="5" TextAlignment="Left" />
+        <TextBox Name="Price" Grid.Row="3" HorizontalAlignment="Right" Width="270" Margin="5" TextAlignment="Left"
+                 MaxLength="12" />
+        <ComboBox Name="City" Grid.Row="2" HorizontalAlignment="Right" Width="270" Margin="0,5,5,10" />
+        <TextBox Name="Type" Grid.Row="4" HorizontalAlignment="Right" Margin="5" Width="270" />
+        <Button Grid.Row="5" Name="add_btn" Width="180" HorizontalAlignment="Left" VerticalAlignment="Center"
+                Content="Reg" Click="add_btn_Click" />
+        <Button Grid.Row="5" Width="170" Name="close_btn" HorizontalAlignment="Right" Content="Cancel"
+                VerticalAlignment="Center" Click="close_btn_Click" />
     </Grid>
 </Window>
