@@ -52,7 +52,7 @@ namespace WpfApp1
 
                 switch (columnName)
                 {
-                    case "login":
+                    case "Name":
                         if (Name.Contains("lox") || Name.Contains("RAB"))
                         {
                             error = "Bad name";

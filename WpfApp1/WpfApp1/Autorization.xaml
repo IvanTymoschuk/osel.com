@@ -5,19 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Autorization" Height="261.078" Width="454.469" ResizeMode="NoResize"  Style="{StaticResource MainWindowStyle}">
+        Title="Autorization" Height="281.078" Width="454.469" ResizeMode="NoResize"  Style="{StaticResource MainWindowStyle}">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="20"></RowDefinition>
-            <RowDefinition Height="35"></RowDefinition>
-            <RowDefinition Height="35"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="30"></RowDefinition>
         </Grid.RowDefinitions>
         <Button  Width="30" Height="30" HorizontalAlignment="Right" Margin="0,-33,14,24" Click="Button_Click" Style="{StaticResource CloseBut}"/>
         <TextBlock Text="LOGIN: " Grid.Row="1" Width="70" Margin="0,0,5,0" VerticalAlignment="Center" HorizontalAlignment="Left" TextAlignment="Right"></TextBlock>
         <TextBlock Text="PASSWORD: " Grid.Row="2" Width="132" Margin="0,1" HorizontalAlignment="Left" VerticalAlignment="Center" TextAlignment="Right"></TextBlock>
-        <TextBox Name="Login" Grid.Row="1" HorizontalAlignment="Right" Width="270" Margin="5" TextAlignment="Left"></TextBox>
-        <PasswordBox Name="Pass"  Grid.Row="2" HorizontalAlignment="Right" Margin="5" Width="270"></PasswordBox>
+        <TextBox Name="Login" Grid.Row="1" HorizontalAlignment="Right" Width="270" Height="40" Margin="5" TextAlignment="Left"></TextBox>
+        <PasswordBox Name="Pass"  Grid.Row="2" HorizontalAlignment="Right" Height="40" Margin="5" Width="270"></PasswordBox>
         <Button  Grid.Row="3" Name="login_btn" Width="150" HorizontalAlignment="Left" Content="Login" Click="login_btn_Click"></Button>
         <Button  Grid.Row="3" Name="reg_btn" HorizontalAlignment="Right"  Width="150" Content="Registation" Click="reg_btn_Click"></Button>
     </Grid>
