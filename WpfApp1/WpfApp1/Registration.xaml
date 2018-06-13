@@ -27,10 +27,10 @@
         <TextBox Name="Login" Style="{DynamicResource TB}" Grid.Row="1" HorizontalAlignment="Right" Width="370" Margin="0,5,5,5" TextAlignment="Left" Text="{Binding Path=login,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}">
 
         </TextBox>
-        <TextBox Name="Phone" Grid.Row="3" HorizontalAlignment="Right" Width="370" Margin="0,5,5,5" TextAlignment="Left" MaxLength="12" Grid.RowSpan="2" Text="{Binding Path=phone,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}" Style="{DynamicResource TB}"></TextBox>
+        <TextBox  Name="Phone" Grid.Row="3" HorizontalAlignment="Right" Width="370" Margin="0,5,5,5" TextAlignment="Left" MaxLength="12" Grid.RowSpan="2" Text="{Binding Path=phone,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}" Style="{DynamicResource TB}"></TextBox>
         <TextBox Name="City" Grid.Row="2" HorizontalAlignment="Right" Width="370" Margin="0,5,5,5" Text="{Binding Path=city,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}"></TextBox>
         <PasswordBox Name="Pass"  Grid.Row="5" HorizontalAlignment="Right" Margin="0,5,5,5" Width="370" PasswordChanged="Pass_PasswordChanged"></PasswordBox>
-        <ProgressBar Grid.Row="6" Name="progres"></ProgressBar>
+        <ProgressBar Grid.Row="6" Name="progres" ValueChanged="progres_ValueChanged"></ProgressBar>
         <Button VerticalAlignment="Center" IsEnabled="{Binding Path=IsValid}" Grid.Row="7" Name="reg_btn" Width="180" HorizontalAlignment="Left" Content="Reg" Click="reg_btn_Click"></Button>
         <Button VerticalAlignment="Center" Grid.Row="7" Width="170" Name="close_btn" HorizontalAlignment="Right" Content="Cancel" Click="close_btn_Click"></Button>
     </Grid>
