@@ -25,11 +25,13 @@ namespace WpfApp1
     {
         private User user;
         ObservableCollection<Advertisment> adverts;
+        Advertisment adv = new Advertisment();
         public Add(User user, ObservableCollection<Advertisment> adverts)
         {
             InitializeComponent();
             this.user = user;
             this.adverts = adverts;
+            this.DataContext = adv;
          }
 
         private void add_btn_Click(object sender, RoutedEventArgs e)

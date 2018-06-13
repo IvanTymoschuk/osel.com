@@ -296,8 +296,11 @@
             </Style.Triggers>
         </Style>
         <Style x:Key="{x:Type TextBox}" TargetType="{x:Type TextBoxBase}">
-           
-        <Setter Property="Template">
+            <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+                <Setter Property="Template">
+            
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type TextBoxBase}">
                         <Border 
@@ -305,7 +308,7 @@
           CornerRadius="2" 
           Padding="2"
           Background="{StaticResource GradButt3}"
-         TextBlock.FontSize="20"
+         
                             TextBlock.Foreground="White"
           BorderThickness="1" >
                             <ScrollViewer Margin="0" x:Name="PART_ContentHost"/>
@@ -321,6 +324,9 @@
             </Setter>
         </Style>
         <Style x:Key="TB" TargetType="TextBox">
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="TextBox">
@@ -407,6 +413,9 @@
           Value="20" />
             <Setter Property="AllowDrop"
           Value="true" />
+            <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type PasswordBox}">
