@@ -15,10 +15,10 @@ namespace WpfApp1
 
         public User()
         {
-            login = random_login();
-            password = "pass";
-            phone = "22221212";
-            city = "None";
+            login = null;
+            password = null;
+            phone = null;
+            city = null;
             isBanned = false;
         }
 
@@ -56,7 +56,12 @@ namespace WpfApp1
             {
                 var list = new List<User>();
                 var error = "";
-
+                var xmlSerializer = new XmlSerializer(typeof(List<User>));
+                using (var fs = new FileStream("user.xml", FileMode.Open))
+                {
+                    list = (List<User>)xmlSerializer.Deserialize(fs);
+                    //    MessageBox.Show(list.Count.ToString());
+                }
 
                 switch (columnName)
                 {
@@ -68,15 +73,12 @@ namespace WpfApp1
                             //    MessageBox.Show("Valid");
                         }
                         else
+                            if (String.IsNullOrEmpty(login))
+                            error = "Login is empty";
+                        else
                         {
                             if (File.Exists("user.xml"))
                             {
-                                var xmlSerializer = new XmlSerializer(typeof(List<User>));
-                                using (var fs = new FileStream("user.xml", FileMode.Open))
-                                {
-                                    list = (List<User>) xmlSerializer.Deserialize(fs);
-                                    //    MessageBox.Show(list.Count.ToString());
-                                }
 
                                 foreach (var el in list)
                                     if (el.login.ToLower() == login.ToLower())
@@ -90,13 +92,17 @@ namespace WpfApp1
 
                     //        error = "Password min length 7 symvol";
                     //    break;
-                    //case "city":
-                    //    if (Regex.IsMatch(phone, @"\W*") == false)
-                    //        error = "city error";
-                    //    break;
+                    case "city":
+                        if (String.IsNullOrEmpty(city))
+                            error = "City is empty";
+                        break;
                     case "phone":
                         if (Regex.IsMatch(phone, @"\d{12}") == false)
                             error = "Phone error";
+                        else
+                            foreach (var el in list)
+                                if (el.phone == phone)
+                                    error = "Phone exist";
 
                         break;
                 }
@@ -108,12 +114,12 @@ namespace WpfApp1
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private string random_login()
-        {
-            string log;
-            var rnd = new Random();
-            log = rnd.Next(999999).ToString();
-            return log;
-        }
+        //private string random_login()
+        //{
+        //    string log;
+        //    var rnd = new Random();
+        //    log = rnd.Next(999999).ToString();
+        //    return log;
+        //}
     }
 }

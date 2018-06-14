@@ -27,6 +27,22 @@ namespace WpfApp1
     {
         public List<User> list = new List<User>();
         public User new_user= new User();
+
+
+        #region
+        //-------------------------------
+        //System var dont change!!!!
+        bool city_cheng = false;
+        bool pas = false;
+        bool pass = false;
+        bool phone_valid = false;
+        bool phone_novalid = false;
+        bool login_valid = false;
+        bool login_novalid = false;
+
+        #endregion
+
+
         public Registration()
         {
             this.DataContext = new_user;
@@ -90,10 +106,10 @@ namespace WpfApp1
         
         }
 
-        bool pas = false;
-        bool pass = false;
+
         private void Pass_PasswordChanged(object sender, RoutedEventArgs e)
         {
+           // progres.Value = 75;
             if (Pass.Password.Length < 7)
             {
                 if (pass == true)
@@ -108,7 +124,7 @@ namespace WpfApp1
                 if (pas == false)
                 {
                         progres.Value += 25;
-                              
+                    pas = true;
                     pass = true;
                 }
             }
@@ -116,22 +132,56 @@ namespace WpfApp1
 
         private void Phone_TextChanged(object sender, TextChangedEventArgs e)
         {
-
-                //if (Validation.GetHasError(Phone) == false)
-                //    progres.Value += 25;
-                //if (Validation.GetHasError(Phone) == true)
-                //    progres.Value -= 25;
+            try
+            {
+                if (Validation.GetHasError(Phone) == false)
+                    if (phone_valid == false)
+                    {
+                        progres.Value += 25;
+                        phone_novalid = true;
+                        phone_valid = true;
+                    }
+                if (Validation.GetHasError(Phone) == true)
+                    if (phone_novalid == true)
+                    {
+                        phone_novalid = false;
+                        progres.Value -= 25;
+                        phone_valid = false;
+                    }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+             
         }
 
         private void Login_TextChanged(object sender, TextChangedEventArgs e)
         {
-            //if (Validation.GetHasError(Login) == false)
-            //    progres.Value += 25;
-            //if (Validation.GetHasError(Login) == true)
-            //    progres.Value -= 25;
+            try
+            {
+                if (Validation.GetHasError(Login) == false)
+                    if (login_valid == false)
+                    {
+                        progres.Value += 25;
+                        login_novalid = true;
+                        login_valid = true;
+                    }
+                if (Validation.GetHasError(Login) == true)
+                    if (login_novalid == true)
+                    {
+                        login_novalid = false;
+                        progres.Value -= 25;
+                        login_valid = false;
+                    }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
-        bool city_cheng = false;
+
         private void City_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (city_cheng == false)
