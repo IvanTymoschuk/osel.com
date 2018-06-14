@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -89,20 +90,25 @@ namespace WpfApp1
         }
 
         bool pas = false;
+        bool pass = false;
         private void Pass_PasswordChanged(object sender, RoutedEventArgs e)
         {
-            if (Pass.Password.Length<7)
+            if (Pass.Password.Length < 7)
             {
-
-                pas = false;
-                progres.Value -= 25;
+                if (pass == true)
+                {
+                    pas = false;
+                        progres.Value -= 25;
+                    pass = false;
+                }
             }
             else
             {
                 if (pas == false)
                 {
-                    progres.Value += 25;
-                    pas = true;
+                        progres.Value += 25;
+                              
+                    pass = true;
                 }
             }
         }
@@ -110,8 +116,8 @@ namespace WpfApp1
         private void Phone_TextChanged(object sender, TextChangedEventArgs e)
         {
 
-                if (Validation.GetHasError(Phone) == false)
-                    progres.Value += 25;
+                //if (Validation.GetHasError(Phone) == false)
+                //    progres.Value += 25;
                 //if (Validation.GetHasError(Phone) == true)
                 //    progres.Value -= 25;
         }
@@ -120,8 +126,8 @@ namespace WpfApp1
         {
             //if (Validation.GetHasError(Login) == false)
             //    progres.Value += 25;
-           // if (Validation.GetHasError(Login) == true)
-           //     progres.Value -= 25;
+            //if (Validation.GetHasError(Login) == true)
+            //    progres.Value -= 25;
         }
 
         bool city_cheng = false;

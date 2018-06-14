@@ -47,8 +47,8 @@ namespace WpfApp1
             get
             {
                 List<User> list = new List<User>();
-               string error = "";
-                
+                string error = null;
+               
 
                 switch (columnName)
                 {
