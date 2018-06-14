@@ -26,13 +26,16 @@ namespace WpfApp1
         private User user;
         ObservableCollection<Advertisment> adverts;
         Advertisment adv = new Advertisment();
+        
         public Add(User user, ObservableCollection<Advertisment> adverts)
         {
             InitializeComponent();
             this.user = user;
             this.adverts = adverts;
             this.DataContext = adv;
-         }
+            Cities cities = new Cities();
+            City.ItemsSource = cities.getCities();
+        }
 
         private void add_btn_Click(object sender, RoutedEventArgs e)
         {
@@ -53,7 +56,7 @@ namespace WpfApp1
                     MessageBox.Show("Valid PRICE ");
                     return;
                 }
-                adverts.Add( new Advertisment(this.Name.Text, price, this.Descript.Text, this.Type.Text, this.City.Text, DateTime.Now, user));
+                adverts.Add( new Advertisment(this.Name.Text, price, this.Descript.Text, this.Type.Text, this.City.SelectedItem.ToString(), DateTime.Now, user));
                 DialogResult = true;
                 this.Close();
             }
