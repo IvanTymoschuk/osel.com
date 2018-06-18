@@ -27,8 +27,6 @@ namespace WpfApp1
     {
         public List<User> list = new List<User>();
         public User new_user= new User();
-
-
         #region
         //-------------------------------
         //System var dont change!!!!
@@ -41,8 +39,6 @@ namespace WpfApp1
         bool login_novalid = false;
 
         #endregion
-
-
         public Registration()
         {
             this.DataContext = new_user;

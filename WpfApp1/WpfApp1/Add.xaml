@@ -34,7 +34,7 @@
         <ComboBox Name="City" Grid.Row="2" HorizontalAlignment="Right" Width="270" Margin="0,5,5,10" />
         <TextBox Name="Type" Grid.Row="4" HorizontalAlignment="Right" Margin="5" Width="270" />
         <Button Grid.Row="5" Name="add_btn" Width="180" HorizontalAlignment="Left" VerticalAlignment="Center"
-                Content="Reg" Click="add_btn_Click" />
+                Content="ADD" Click="add_btn_Click" />
         <Button Grid.Row="5" Width="170" Name="close_btn" HorizontalAlignment="Right" Content="Cancel"
                 VerticalAlignment="Center" Click="close_btn_Click" />
     </Grid>
